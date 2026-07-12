@@ -44,8 +44,3 @@ npx serve .
 2. Framework preset : **Other** (aucun build nécessaire).
 3. Laisse "Build command" et "Output directory" vides, ou mets `.` comme output directory.
 4. Déploie — le site est servi directement.
-
-## À personnaliser avant publication
-
-- **Email de contact** — remplacer `votre-email@exemple.com` dans `index.html` (section Contact).
-- **LinkedIn** — remplacer `linkedin.com/in/votre-profil` par ton vrai profil dans `index.html`.
