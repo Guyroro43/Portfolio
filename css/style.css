@@ -447,6 +447,24 @@ h1, h2, h3 {
 .project-row-body p { max-width: 60ch; margin: 0 0 var(--space-4); text-align: justify; hyphens: auto; }
 .project-row:hover { opacity: 0.7; }
 
+.project-links { display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: var(--space-6); }
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--accent-on-light);
+  border-bottom: 2px solid var(--accent-on-light);
+  padding-bottom: 2px;
+  transition: gap var(--duration) var(--ease);
+}
+.project-link:hover { gap: 12px; }
+
 .tag-list { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .tag-list li {
   font-family: var(--font-mono);
