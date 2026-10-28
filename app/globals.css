@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+/*
+ * Couleurs et polices du thème.
+ * Les 6 couleurs --c-* et les 2 polices --f-* viennent du thème publié (balise <style> du layout).
+ * Les valeurs ci-dessous sont celles de départ, utilisées si cette balise manque (page 404 globale).
+ */
+:root {
+  --c-bg-dark: #0b0e2e;
+  --c-bg-indigo: #12164a;
+  --c-bg-light: #f6f3ec;
+  --c-accent: #e2a33a;
+  --c-text: #151842;
+  --c-text-muted: #4b5075;
+  --f-heading: system-ui;
+  --f-body: system-ui;
+}
+
+/*
+ * Jetons Tailwind. Les teintes secondaires sont calculées à partir des 6 couleurs du thème :
+ * avec le thème de départ, elles retombent sur les valeurs des maquettes (en commentaire).
+ */
+@theme inline {
+  --color-bg-dark: var(--c-bg-dark);
+  --color-bg-indigo: var(--c-bg-indigo);
+  --color-bg-light: var(--c-bg-light);
+  --color-accent: var(--c-accent);
+  --color-ink: var(--c-text);
+  --color-ink-muted: var(--c-text-muted);
+
+  --color-bg-light-alt: color-mix(in oklab, var(--c-bg-light) 97%, black); /* #EFEAE0 */
+  --color-accent-ink: color-mix(in oklab, var(--c-accent) 67%, black); /* #8A5A0C */
+  --color-ink-soft: color-mix(in oklab, var(--c-text) 58%, var(--c-text-muted)); /* #2B2F57 */
+  --color-ink-label: color-mix(in oklab, var(--c-text-muted) 81%, white); /* #6A6E8E */
+  --color-line: color-mix(in oklab, var(--c-bg-light) 93%, black); /* #E4DED0 */
+  --color-line-soft: color-mix(in oklab, var(--c-bg-light) 97%, black); /* #EEE9DD */
+  --color-chip: color-mix(in oklab, var(--c-bg-light) 98%, var(--c-bg-dark)); /* #F1EEE6 */
+  --color-tile-warm: color-mix(in oklab, var(--c-bg-light) 94%, var(--c-accent)); /* #F3EEE3 */
+  --color-tile-indigo: color-mix(in oklab, white 94%, var(--c-bg-indigo)); /* #EEF0FB */
+  --color-indigo-bright: oklch(from var(--c-bg-indigo) calc(l + 0.15) calc(c + 0.07) h); /* #2A3399 */
+  --color-halo-indigo: oklch(from var(--c-bg-indigo) calc(l + 0.2) calc(c + 0.065) h); /* #3A43A8 */
+
+  --color-on-dark: var(--c-bg-light); /* #F4F1EA */
+  --color-on-dark-nav: color-mix(in oklab, white 80%, var(--c-bg-indigo)); /* #C9CBE3 */
+  --color-on-dark-muted: color-mix(in oklab, white 74%, var(--c-bg-indigo)); /* #B9BCD9 */
+  --color-on-dark-faint: color-mix(in oklab, white 57%, var(--c-bg-indigo)); /* #8F93BF */
+  --color-surface-dark: color-mix(in oklab, var(--c-bg-indigo) 97%, white); /* #141A4A */
+  --color-surface-shot: color-mix(in oklab, var(--c-bg-indigo) 95%, white); /* #1A1F5C */
+  --color-surface-bar: color-mix(in oklab, var(--c-bg-indigo) 93%, white); /* #1C2266 */
+  --color-placeholder: color-mix(in oklab, var(--c-bg-indigo) 64%, white); /* #5D6299 */
+
+  --color-status-progress-bg: color-mix(in oklab, var(--c-accent) 19%, white); /* #FBEFD9 */
+  --color-status-progress-fg: color-mix(in oklab, var(--c-accent) 61%, black); /* #7A4E08 */
+  --color-status-redesign-bg: color-mix(in oklab, var(--c-bg-indigo) 8%, white); /* #E9EBFA */
+  --color-status-delivered-bg: #dff1e8;
+  --color-status-delivered-fg: #17603f;
+
+  --font-heading: var(--f-heading), system-ui, sans-serif;
+  --font-body: var(--f-body), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+/* Réduire les animations : tout s'affiche directement, dans son état final. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

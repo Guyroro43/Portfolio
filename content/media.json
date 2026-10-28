@@ -1,0 +1,123 @@
+{
+  "moi-hero": {
+    "path": "images/moi-hero.webp",
+    "width": 715,
+    "height": 715,
+    "crop": null,
+    "caption": { "fr": "Abidjan, Côte d'Ivoire", "en": "Abidjan, Côte d'Ivoire" },
+    "alt": {
+      "fr": "Portrait de Guy Roland Obodjé en costume gris, fond sombre.",
+      "en": "Portrait of Guy Roland Obodjé in a grey suit, dark background."
+    }
+  },
+  "membres-je": {
+    "path": "images/membres-je.webp",
+    "width": 1280,
+    "height": 804,
+    "crop": null,
+    "caption": { "fr": "Les membres de la JE ESCA", "en": "The ESCA Junior Enterprise team" },
+    "alt": {
+      "fr": "Portrait de groupe des membres de la Junior Entreprise ESCA, en tenue de ville.",
+      "en": "Group portrait of the ESCA Junior Enterprise members in business attire."
+    }
+  },
+  "moi-major-bachelier": {
+    "path": "images/moi-major-bachelier.webp",
+    "width": 760,
+    "height": 1013,
+    "crop": null,
+    "caption": { "fr": "Avec le major bachelier national 2023", "en": "With the 2023 national top baccalaureate student" },
+    "alt": {
+      "fr": "Guy Roland Obodjé posant avec le major bachelier national 2023, en uniforme INP-HB.",
+      "en": "Guy Roland Obodjé posing with the 2023 national top baccalaureate student, in INP-HB uniform."
+    }
+  },
+  "ma-famille-esca": {
+    "path": "images/ma-famille-esca.webp",
+    "width": 1000,
+    "height": 652,
+    "crop": null,
+    "caption": { "fr": "Ma Famille ESCA", "en": "My ESCA family" },
+    "alt": {
+      "fr": "Guy Roland Obodjé avec une partie de sa promotion de la Junior Entreprise ESCA, en uniforme, devant des palmiers.",
+      "en": "Guy Roland Obodjé with part of his ESCA Junior Enterprise class, in uniform, in front of palm trees."
+    }
+  },
+  "moi-seul": {
+    "path": "images/moi-seul.webp",
+    "width": 760,
+    "height": 1013,
+    "crop": null,
+    "caption": { "fr": "Uniforme d'apparat, INP-HB", "en": "Dress uniform, INP-HB" },
+    "alt": {
+      "fr": "Guy Roland Obodjé en uniforme d'apparat INP-HB, devant des palmiers.",
+      "en": "Guy Roland Obodjé in INP-HB dress uniform, in front of palm trees."
+    }
+  },
+  "moi-voisin": {
+    "path": "images/moi-voisin.webp",
+    "width": 760,
+    "height": 1013,
+    "crop": null,
+    "caption": { "fr": "Avec mon voisin de classe, ici ça bosse !", "en": "With my desk neighbour, hard at work!" },
+    "alt": {
+      "fr": "Guy Roland Obodjé et un ami faisant des gestes espiègles, en uniforme INP-HB.",
+      "en": "Guy Roland Obodjé and a friend making playful gestures, in INP-HB uniform."
+    }
+  },
+  "la-team": {
+    "path": "images/la-team.webp",
+    "width": 900,
+    "height": 675,
+    "crop": null,
+    "caption": { "fr": "La Team", "en": "The Team" },
+    "alt": {
+      "fr": "Groupe d'élèves de l'INP-HB en uniforme vert, alignés devant des palmiers.",
+      "en": "A group of INP-HB students in green uniforms, lined up in front of palm trees."
+    }
+  },
+  "cherif-et-moi": {
+    "path": "images/cherif-et-moi.webp",
+    "width": 900,
+    "height": 675,
+    "crop": null,
+    "caption": { "fr": "Chérif et moi", "en": "Chérif and me" },
+    "alt": {
+      "fr": "Guy Roland Obodjé avec un ami, lunettes de soleil, pouce levé.",
+      "en": "Guy Roland Obodjé with a friend, sunglasses on, thumbs up."
+    }
+  },
+  "mini-groupe": {
+    "path": "images/mini-groupe.webp",
+    "width": 900,
+    "height": 675,
+    "crop": null,
+    "caption": { "fr": "Le mini groupe, improvisé mais c'est frais !", "en": "The mini crew, improvised but fresh!" },
+    "alt": {
+      "fr": "Guy Roland Obodjé souriant avec deux amis.",
+      "en": "Guy Roland Obodjé smiling with two friends."
+    }
+  },
+  "animation-2d": {
+    "path": "images/animation-2d.webp",
+    "width": 736,
+    "height": 414,
+    "crop": null,
+    "caption": { "fr": "Animation 2D africaine", "en": "African 2D animation" },
+    "alt": {
+      "fr": "Illustration en noir et blanc d'une scène d'animation 2D africaine.",
+      "en": "Black and white illustration of an African 2D animation scene."
+    }
+  },
+  "football": {
+    "path": "images/football.webp",
+    "width": 731,
+    "height": 1280,
+    "crop": null,
+    "caption": { "fr": "Football", "en": "Football" },
+    "alt": {
+      "fr": "Gros plan sur un crampon touchant un ballon de football sous les projecteurs d'un stade.",
+      "en": "Close-up of a football boot touching a ball under stadium floodlights."
+    }
+  }
+}

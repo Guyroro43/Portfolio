@@ -1,0 +1,565 @@
+{
+  "site": {
+    "meta": {
+      "title": {
+        "fr": "Guy Roland Obodjé (ANASSE), élève ingénieur et bâtisseur de projets",
+        "en": "Guy Roland Obodjé (ANASSE), engineering student and project builder"
+      },
+      "description": {
+        "fr": "Portfolio de Guy Roland Obodjé, dit ANASSE : élève ingénieur à l'ESCA (INP-HB, Côte d'Ivoire), créateur d'ANTA, de Postula et d'autres projets EdTech, e-commerce et data.",
+        "en": "Portfolio of Guy Roland Obodjé, known as ANASSE: engineering student at ESCA (INP-HB, Côte d'Ivoire), creator of ANTA, Postula and other EdTech, e-commerce and data projects."
+      }
+    },
+    "contactButton": { "fr": "Me contacter", "en": "Contact me" },
+    "footer": {
+      "left": { "fr": "© 2026 Guy Roland Obodjé, dit ANASSE", "en": "© 2026 Guy Roland Obodjé, aka ANASSE" },
+      "right": { "fr": "Abidjan, Côte d'Ivoire", "en": "Abidjan, Côte d'Ivoire" }
+    }
+  },
+  "theme": {
+    "colors": {
+      "bgDark": "#0B0E2E",
+      "bgIndigo": "#12164A",
+      "bgLight": "#F6F3EC",
+      "accent": "#E2A33A",
+      "text": "#151842",
+      "textMuted": "#4B5075"
+    },
+    "fonts": { "heading": "bricolage-grotesque", "body": "inter" }
+  },
+  "sections": [
+    {
+      "id": "haut-de-page",
+      "type": "hero",
+      "visible": true,
+      "inMenu": false,
+      "label": { "fr": "Haut de page", "en": "Top" },
+      "title": { "fr": "Haut de page", "en": "Top" },
+      "intro": { "fr": "", "en": "" },
+      "symbol": null,
+      "tone": "dark",
+      "data": {
+        "location": { "fr": "Abidjan, Côte d'Ivoire", "en": "Abidjan, Côte d'Ivoire" },
+        "name": "Guy Roland Obodjé",
+        "nickname": { "prefix": { "fr": "dit", "en": "aka" }, "name": "ANASSE" },
+        "role": { "fr": "Élève ingénieur et bâtisseur de projets", "en": "Engineering student and project builder" },
+        "lead": {
+          "fr": "Je conçois et développe des produits web de bout en bout, de la plateforme EdTech ANTA aux missions de la Junior Entreprise ESCA. Élève ingénieur en deuxième année du cycle ingénieur à l'ESCA (INP-HB, Côte d'Ivoire), spécialisation gestion et commerce.",
+          "en": "I design and build web products end to end, from the EdTech platform ANTA to projects for the ESCA Junior Enterprise. Second-year student in the engineering cycle at ESCA (INP-HB, Côte d'Ivoire), majoring in management and business."
+        },
+        "buttons": [
+          { "id": "voir-projets", "label": { "fr": "Voir mes projets", "en": "See my projects" }, "target": "projets" },
+          { "id": "me-contacter", "label": { "fr": "Me contacter", "en": "Contact me" }, "target": "contact" }
+        ],
+        "stats": [
+          {
+            "id": "bac",
+            "value": "330",
+            "suffix": "/400",
+            "count": true,
+            "label": { "fr": "Bac 2023, major régional de l'Agnéby-Tiassa", "en": "2023 baccalaureate, top of the Agnéby-Tiassa region" }
+          },
+          {
+            "id": "excel",
+            "value": "25",
+            "suffix": "",
+            "count": true,
+            "label": { "fr": "camarades de promo formés à Excel", "en": "classmates trained in Excel" }
+          },
+          {
+            "id": "efootball",
+            "value": "D1",
+            "suffix": "",
+            "count": false,
+            "label": { "fr": "en eFootball, plusieurs saisons de suite", "en": "in eFootball, several seasons in a row" }
+          }
+        ],
+        "photo": "moi-hero"
+      }
+    },
+    {
+      "id": "bande-de-noms",
+      "type": "marquee",
+      "visible": true,
+      "inMenu": false,
+      "label": { "fr": "Bande de noms", "en": "Names" },
+      "title": { "fr": "Bande de noms", "en": "Names" },
+      "intro": { "fr": "", "en": "" },
+      "symbol": null,
+      "tone": "dark",
+      "data": {
+        "items": [
+          { "id": "gocab", "text": { "fr": "GoCab Innovation Lab", "en": "GoCab Innovation Lab" } },
+          { "id": "inphb", "text": { "fr": "INP-HB", "en": "INP-HB" } },
+          { "id": "je-esca", "text": { "fr": "Junior Entreprise ESCA", "en": "ESCA Junior Enterprise" } },
+          { "id": "belmor", "text": { "fr": "Belmor Cosmetic", "en": "Belmor Cosmetic" } }
+        ]
+      }
+    },
+    {
+      "id": "a-propos",
+      "type": "text",
+      "visible": true,
+      "inMenu": true,
+      "label": { "fr": "À propos", "en": "About" },
+      "title": { "fr": "Qui je suis", "en": "Who I am" },
+      "intro": { "fr": "", "en": "" },
+      "symbol": "dwennimmen",
+      "tone": "light",
+      "data": {
+        "paragraphs": [
+          {
+            "id": "parcours",
+            "text": {
+              "fr": "Mon parcours commence à Yadio, où j'ai suivi ma scolarité primaire, avant le lycée à Agboville. J'y ai obtenu mon baccalauréat en 2023 en tant que major régional de l'Agnéby-Tiassa, avec une moyenne de 330/400. Deux années de classes préparatoires à l'INP-HB (2023-2025) m'ont ensuite mené, par concours, au cycle ingénieur en 2025.",
+              "en": "My journey begins in Yadio, where I went to primary school, before high school in Agboville. There I earned my baccalaureate in 2023 as the top student of the Agnéby-Tiassa region, with an average of 330/400. Two years of preparatory classes at INP-HB (2023-2025) then led me, through a competitive exam, to the engineering cycle in 2025."
+            }
+          },
+          {
+            "id": "aujourdhui",
+            "text": {
+              "fr": "Avant l'ingénierie, j'ai fait mes armes dans le commerce, comme agent commercial chez Belmor Cosmetic (2021-2022). Aujourd'hui, je suis Adjoint Chargé aux Traitements et Analyse de Données à la Junior Entreprise ESCA. Chez GoCab Innovation Lab, je m'occupe du produit GoBuy : suivi financier, rapports de la semaine et coordination sur le terrain.",
+              "en": "Before engineering, I learned the ropes in sales, as a sales agent at Belmor Cosmetic (2021-2022). Today, I am Deputy Officer for Data Processing and Analysis at the ESCA Junior Enterprise. At GoCab Innovation Lab, I work on the GoBuy product: financial tracking, weekly reports and field coordination."
+            }
+          }
+        ],
+        "side": {
+          "kind": "card",
+          "title": { "fr": "En bref", "en": "At a glance" },
+          "rows": [
+            {
+              "id": "formation",
+              "icon": "graduation-cap",
+              "label": { "fr": "Formation", "en": "Education" },
+              "value": { "fr": "Cycle ingénieur, ESCA / INP-HB, gestion et commerce", "en": "Engineering cycle, ESCA / INP-HB, management and business" }
+            },
+            {
+              "id": "role-je",
+              "icon": "users",
+              "label": { "fr": "Rôle à la JE", "en": "Junior Enterprise role" },
+              "value": { "fr": "Adjoint Chargé aux Traitements et Analyse de Données, JE ESCA", "en": "Deputy Officer for Data Processing and Analysis, ESCA JE" }
+            },
+            {
+              "id": "gocab",
+              "icon": "briefcase",
+              "label": { "fr": "Chez GoCab", "en": "At GoCab" },
+              "value": { "fr": "Produit GoBuy, GoCab Innovation Lab", "en": "GoBuy product, GoCab Innovation Lab" }
+            },
+            {
+              "id": "bac",
+              "icon": "trophy",
+              "label": { "fr": "Bac 2023", "en": "2023 baccalaureate" },
+              "value": { "fr": "Major régional de l'Agnéby-Tiassa (330/400)", "en": "Top of the Agnéby-Tiassa region (330/400)" }
+            },
+            {
+              "id": "avant",
+              "icon": "shopping-bag",
+              "label": { "fr": "Avant", "en": "Before" },
+              "value": { "fr": "Agent commercial, Belmor Cosmetic (2021-2022)", "en": "Sales agent, Belmor Cosmetic (2021-2022)" }
+            },
+            {
+              "id": "localisation",
+              "icon": "map-pin",
+              "label": { "fr": "Localisation", "en": "Location" },
+              "value": { "fr": "Abidjan, Côte d'Ivoire", "en": "Abidjan, Côte d'Ivoire" }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "projets",
+      "type": "cards",
+      "visible": true,
+      "inMenu": true,
+      "label": { "fr": "Projets", "en": "Projects" },
+      "title": { "fr": "Des produits construits de bout en bout", "en": "Products built end to end" },
+      "intro": { "fr": "Conception, technique et mise sur le marché.", "en": "Design, engineering and go-to-market." },
+      "symbol": "aya",
+      "tone": "light",
+      "data": {
+        "variant": "projects",
+        "items": [
+          {
+            "id": "anta",
+            "icon": null,
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "ANTA", "en": "ANTA" },
+            "text": {
+              "fr": "Plateforme EdTech d'apprentissage de l'anglais pensée pour les jeunes africains francophones. Modèle freemium, paiement Mobile Money et gamification par système de badges.",
+              "en": "An EdTech platform for learning English, designed for young French-speaking Africans. Freemium model, Mobile Money payments and gamification through badges."
+            },
+            "tags": [
+              { "id": "nextjs", "text": { "fr": "Next.js", "en": "Next.js" } },
+              { "id": "tailwind", "text": { "fr": "Tailwind CSS", "en": "Tailwind CSS" } },
+              { "id": "supabase", "text": { "fr": "Supabase", "en": "Supabase" } },
+              { "id": "postgresql", "text": { "fr": "PostgreSQL", "en": "PostgreSQL" } },
+              { "id": "vercel", "text": { "fr": "Vercel", "en": "Vercel" } }
+            ],
+            "status": "in-progress",
+            "featured": true,
+            "siteUrl": "https://antaelearn.vercel.app",
+            "codeUrl": "https://github.com/Guyroro43/ANTANEW",
+            "image": null
+          },
+          {
+            "id": "postula",
+            "icon": "file-text",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "Postula", "en": "Postula" },
+            "text": {
+              "fr": "Une plateforme qui écrit un CV adapté à chaque offre d'emploi, pour les étudiants et jeunes diplômés en Côte d'Ivoire. On part d'une vraie offre, on reçoit un CV pensé pour elle.",
+              "en": "A platform that writes a CV tailored to each job offer, for students and recent graduates in Côte d'Ivoire. Start from a real job posting, get a CV built for it."
+            },
+            "tags": [
+              { "id": "nextjs", "text": { "fr": "Next.js", "en": "Next.js" } },
+              { "id": "supabase", "text": { "fr": "Supabase", "en": "Supabase" } },
+              { "id": "wave", "text": { "fr": "Wave", "en": "Wave" } }
+            ],
+            "status": "in-progress",
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "ostore",
+            "icon": "shopping-bag",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "O'Store", "en": "O'Store" },
+            "text": {
+              "fr": "Boutique en ligne réservée aux étudiants de l'INP-HB. Première version livrée en HTML/CSS/JS avec panel administrateur et export des ventes en CSV et PDF. Refonte en cours avec Tailwind CSS, shadcn/ui et Supabase.",
+              "en": "An online shop for INP-HB students. First version shipped in HTML/CSS/JS with an admin panel and sales export to CSV and PDF. Redesign in progress with Tailwind CSS, shadcn/ui and Supabase."
+            },
+            "tags": [
+              { "id": "tailwind", "text": { "fr": "Tailwind CSS", "en": "Tailwind CSS" } },
+              { "id": "shadcn", "text": { "fr": "shadcn/ui", "en": "shadcn/ui" } },
+              { "id": "supabase", "text": { "fr": "Supabase", "en": "Supabase" } },
+              { "id": "javascript", "text": { "fr": "JavaScript", "en": "JavaScript" } }
+            ],
+            "status": "redesign",
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "betkick",
+            "icon": "gamepad-2",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "BetKick & Tournois", "en": "BetKick & Tournaments" },
+            "text": {
+              "fr": "Plateforme de défis et tournois eFootball en ligne, avec paiements via Wave CI.",
+              "en": "An online platform for eFootball challenges and tournaments, with payments via Wave CI."
+            },
+            "tags": [
+              { "id": "supabase", "text": { "fr": "Supabase", "en": "Supabase" } },
+              { "id": "netlify", "text": { "fr": "Netlify", "en": "Netlify" } },
+              { "id": "wave-ci", "text": { "fr": "Wave CI", "en": "Wave CI" } }
+            ],
+            "status": "delivered",
+            "featured": false,
+            "siteUrl": "https://betkick.vercel.app",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "guides-pdf",
+            "icon": "book-open",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "Guides pratiques PDF", "en": "Practical PDF guides" },
+            "text": {
+              "fr": "Guides vendus sur Chariow : une formation à l'analyse de données pour débutants et amateurs, et un guide d'initiation à la Bourse (BRVM) pour l'Afrique francophone.",
+              "en": "Guides sold on Chariow: a data analysis course for beginners and enthusiasts, and an introduction to the stock market (BRVM) for French-speaking Africa."
+            },
+            "tags": [
+              { "id": "chariow", "text": { "fr": "Chariow", "en": "Chariow" } },
+              { "id": "pdf", "text": { "fr": "PDF", "en": "PDF" } },
+              { "id": "data", "text": { "fr": "Data", "en": "Data" } },
+              { "id": "brvm", "text": { "fr": "BRVM", "en": "BRVM" } }
+            ],
+            "status": "for-sale",
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "missions-je",
+            "icon": "trending-up",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "Missions JE ESCA", "en": "ESCA Junior Enterprise projects" },
+            "text": {
+              "fr": "Études marketing, propositions commerciales et gestion de projets digitaux pour des clients ivoiriens.",
+              "en": "Marketing studies, sales proposals and digital project management for Ivorian clients."
+            },
+            "tags": [
+              { "id": "marketing", "text": { "fr": "Marketing", "en": "Marketing" } },
+              { "id": "business", "text": { "fr": "Business", "en": "Business" } },
+              { "id": "gestion-projet", "text": { "fr": "Gestion de projet", "en": "Project management" } }
+            ],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "parcours",
+      "type": "timeline",
+      "visible": true,
+      "inMenu": true,
+      "label": { "fr": "Parcours", "en": "Journey" },
+      "title": { "fr": "De l'école de Yadio au cycle ingénieur", "en": "From school in Yadio to the engineering cycle" },
+      "intro": { "fr": "", "en": "" },
+      "symbol": "nkyinkyim",
+      "tone": "indigo",
+      "data": {
+        "steps": [
+          {
+            "id": "primaire",
+            "date": { "fr": "Avant 2016", "en": "Before 2016" },
+            "title": { "fr": "École primaire, Yadio", "en": "Primary school, Yadio" },
+            "text": { "fr": "Scolarité primaire dans le village de Yadio.", "en": "Primary schooling in the village of Yadio." }
+          },
+          {
+            "id": "lycee",
+            "date": { "fr": "2016-2023", "en": "2016-2023" },
+            "title": { "fr": "Lycée, Agboville", "en": "High school, Agboville" },
+            "text": { "fr": "Scolarité secondaire à Agboville, jusqu'au baccalauréat.", "en": "Secondary schooling in Agboville, through to the baccalaureate." }
+          },
+          {
+            "id": "bac",
+            "date": { "fr": "2023", "en": "2023" },
+            "title": { "fr": "Baccalauréat, major régional", "en": "Baccalaureate, top of the region" },
+            "text": { "fr": "Major régional de l'Agnéby-Tiassa, avec une moyenne de 330/400.", "en": "Top student of the Agnéby-Tiassa region, with an average of 330/400." }
+          },
+          {
+            "id": "prepa",
+            "date": { "fr": "2023-2025", "en": "2023-2025" },
+            "title": { "fr": "Classes préparatoires, INP-HB", "en": "Preparatory classes, INP-HB" },
+            "text": { "fr": "Deux années de classes préparatoires intégrées à l'INP-HB, Côte d'Ivoire.", "en": "Two years of integrated preparatory classes at INP-HB, Côte d'Ivoire." }
+          },
+          {
+            "id": "ingenieur",
+            "date": { "fr": "Depuis 2025", "en": "Since 2025" },
+            "title": { "fr": "Cycle ingénieur, ESCA", "en": "Engineering cycle, ESCA" },
+            "text": {
+              "fr": "Intégration par concours du cycle ingénieur, spécialisation gestion et commerce.",
+              "en": "Admitted to the engineering cycle through a competitive exam, majoring in management and business."
+            }
+          }
+        ],
+        "note": {
+          "label": { "fr": "En parallèle :", "en": "Alongside:" },
+          "text": { "fr": "agent commercial chez Belmor Cosmetic (2021-2022).", "en": "sales agent at Belmor Cosmetic (2021-2022)." }
+        }
+      }
+    },
+    {
+      "id": "competences",
+      "type": "cards",
+      "visible": true,
+      "inMenu": true,
+      "label": { "fr": "Compétences", "en": "Skills" },
+      "title": { "fr": "Ce que je sais faire", "en": "What I can do" },
+      "intro": { "fr": "", "en": "" },
+      "symbol": "mate-masie",
+      "tone": "light",
+      "data": {
+        "variant": "tags",
+        "items": [
+          {
+            "id": "data-gestion",
+            "icon": "database",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "Data & Gestion", "en": "Data & Management" },
+            "text": { "fr": "", "en": "" },
+            "tags": [
+              { "id": "analyse-donnees", "text": { "fr": "Analyse et traitement de données", "en": "Data analysis and processing" } },
+              { "id": "power-bi", "text": { "fr": "Power BI", "en": "Power BI" } },
+              { "id": "excel", "text": { "fr": "Excel avancé et modèles financiers", "en": "Advanced Excel and financial models" } },
+              { "id": "syscohada", "text": { "fr": "Analyse financière SYSCOHADA", "en": "SYSCOHADA financial analysis" } },
+              { "id": "etudes-marketing", "text": { "fr": "Études marketing et business plans", "en": "Marketing studies and business plans" } }
+            ],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "tech-web",
+            "icon": "code",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "Tech & Web", "en": "Tech & Web" },
+            "text": { "fr": "", "en": "" },
+            "tags": [
+              { "id": "html-css-js", "text": { "fr": "HTML / CSS / JavaScript", "en": "HTML / CSS / JavaScript" } },
+              { "id": "nextjs", "text": { "fr": "Next.js", "en": "Next.js" } },
+              { "id": "tailwind", "text": { "fr": "Tailwind CSS", "en": "Tailwind CSS" } },
+              { "id": "supabase", "text": { "fr": "Supabase & PostgreSQL", "en": "Supabase & PostgreSQL" } },
+              { "id": "deploiement", "text": { "fr": "Déploiement Vercel / Netlify / GitHub", "en": "Deployment on Vercel / Netlify / GitHub" } },
+              { "id": "python", "text": { "fr": "Python", "en": "Python" } }
+            ],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "business",
+            "icon": "briefcase",
+            "kicker": { "fr": "", "en": "" },
+            "title": { "fr": "Business", "en": "Business" },
+            "text": { "fr": "", "en": "" },
+            "tags": [
+              { "id": "entrepreneuriat", "text": { "fr": "Entrepreneuriat", "en": "Entrepreneurship" } },
+              { "id": "propositions", "text": { "fr": "Propositions commerciales", "en": "Sales proposals" } },
+              { "id": "gantt", "text": { "fr": "Gestion de projet (Gantt)", "en": "Project management (Gantt)" } },
+              { "id": "formation", "text": { "fr": "Formation et pédagogie", "en": "Training and teaching" } }
+            ],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "hors-du-cadre",
+      "type": "cards",
+      "visible": true,
+      "inMenu": true,
+      "label": { "fr": "Hors du cadre", "en": "Off the clock" },
+      "title": { "fr": "Quand je ne travaille pas", "en": "When I'm not working" },
+      "intro": { "fr": "", "en": "" },
+      "symbol": "sankofa",
+      "tone": "light-alt",
+      "data": {
+        "variant": "pictures",
+        "items": [
+          {
+            "id": "efootball",
+            "icon": "gamepad-2",
+            "kicker": { "fr": "eFootball", "en": "eFootball" },
+            "title": { "fr": "Joueur compétitif", "en": "Competitive player" },
+            "text": {
+              "fr": "Classé Division 1 sur plusieurs saisons consécutives, et toujours prêt à chambrer après une victoire.",
+              "en": "Ranked in Division 1 for several seasons in a row, and always up for some banter after a win."
+            },
+            "tags": [],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": null
+          },
+          {
+            "id": "animation",
+            "icon": "film",
+            "kicker": { "fr": "Animation", "en": "Animation" },
+            "title": { "fr": "Animation 2D africaine", "en": "African 2D animation" },
+            "text": {
+              "fr": "Passionné par l'animation 2D et ses représentations africaines.",
+              "en": "Passionate about 2D animation and the way it portrays Africa."
+            },
+            "tags": [],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": "animation-2d"
+          },
+          {
+            "id": "football",
+            "icon": "trophy",
+            "kicker": { "fr": "Football", "en": "Football" },
+            "title": { "fr": "Culture et supporter", "en": "Culture and fandom" },
+            "text": {
+              "fr": "Supporter assidu de football et de la culture ivoirienne et africaine.",
+              "en": "A devoted supporter of football and of Ivorian and African culture."
+            },
+            "tags": [],
+            "status": null,
+            "featured": false,
+            "siteUrl": "",
+            "codeUrl": "",
+            "image": "football"
+          }
+        ]
+      }
+    },
+    {
+      "id": "galerie",
+      "type": "gallery",
+      "visible": true,
+      "inMenu": true,
+      "label": { "fr": "Galerie", "en": "Gallery" },
+      "title": { "fr": "Quelques instantanés", "en": "A few snapshots" },
+      "intro": {
+        "fr": "En dehors des lignes de code : promo, potes, uniforme d'apparat.",
+        "en": "Away from the code: classmates, friends, dress uniform."
+      },
+      "symbol": "nkonsonkonson",
+      "tone": "dark",
+      "data": {
+        "items": [
+          { "id": "membres-je", "photo": "membres-je", "tall": true },
+          { "id": "major-bachelier", "photo": "moi-major-bachelier", "tall": false },
+          { "id": "famille-esca", "photo": "ma-famille-esca", "tall": true },
+          { "id": "apparat", "photo": "moi-seul", "tall": true },
+          { "id": "voisin", "photo": "moi-voisin", "tall": false },
+          { "id": "la-team", "photo": "la-team", "tall": false },
+          { "id": "cherif", "photo": "cherif-et-moi", "tall": true },
+          { "id": "mini-groupe", "photo": "mini-groupe", "tall": false }
+        ]
+      }
+    },
+    {
+      "id": "contact",
+      "type": "links",
+      "visible": true,
+      "inMenu": false,
+      "label": { "fr": "Contact", "en": "Contact" },
+      "title": { "fr": "Travaillons ensemble.", "en": "Let's work together." },
+      "intro": {
+        "fr": "Un projet, une mission ou une simple question : écris-moi.",
+        "en": "A project, an assignment or just a question: write to me."
+      },
+      "symbol": "adinkrahene",
+      "tone": "indigo",
+      "data": {
+        "items": [
+          {
+            "id": "email",
+            "kind": "email",
+            "label": { "fr": "Email", "en": "Email" },
+            "display": "rolandanasse5@gmail.com",
+            "href": "mailto:rolandanasse5@gmail.com"
+          },
+          {
+            "id": "github",
+            "kind": "github",
+            "label": { "fr": "GitHub", "en": "GitHub" },
+            "display": "github.com/Guyroro43",
+            "href": "https://github.com/Guyroro43"
+          },
+          {
+            "id": "linkedin",
+            "kind": "linkedin",
+            "label": { "fr": "LinkedIn", "en": "LinkedIn" },
+            "display": "in/roland-anasse",
+            "href": "https://www.linkedin.com/in/roland-anasse-9259b92b2"
+          }
+        ]
+      }
+    }
+  ]
+}
