@@ -43,7 +43,7 @@ const browser = spawn(browserPath, [
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function pageSocketUrl() {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 150; i++) {
     try {
       const targets = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()
       const page = targets.find((t) => t.type === 'page')
@@ -95,6 +95,19 @@ try {
   await loaded
   await sleep(2500) // polices et animations d'entrée
 
+  // Défile toute la page comme un visiteur, pour déclencher les apparitions, puis revient en haut.
+  const evaluate = (expression) => send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true })
+  await evaluate(`(async () => {
+    document.documentElement.style.scrollBehavior = 'auto'
+    for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight / 2) {
+      scrollTo(0, y)
+      await new Promise((r) => setTimeout(r, 120))
+    }
+    await new Promise((r) => setTimeout(r, 800))
+    scrollTo(0, 0)
+  })()`)
+  await sleep(500)
+
   const { result } = await send('Runtime.evaluate', {
     expression:
       'JSON.stringify({ h: document.documentElement.scrollHeight, w: document.documentElement.scrollWidth, vw: innerWidth })',
@@ -103,9 +116,16 @@ try {
   const size = JSON.parse(result.value)
   if (size.w > size.vw) console.warn(`Attention : la page déborde en largeur (${size.w} px pour ${size.vw} px).`)
 
+  // --clip=Y:H ne garde qu'une bande de la page, à taille réelle.
+  const clipArg = process.argv.find((a) => a.startsWith('--clip='))
+  const [clipY, clipH] = clipArg ? clipArg.slice(7).split(':').map(Number) : [0, 0]
   await send('Emulation.setDeviceMetricsOverride', { ...metrics, height: Math.min(size.h, 16000) })
   await sleep(300)
-  const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true })
+  const shot = await send('Page.captureScreenshot', {
+    format: 'png',
+    captureBeyondViewport: true,
+    ...(clipArg ? { clip: { x: 0, y: clipY, width, height: clipH, scale: 1 } } : {}),
+  })
   writeFileSync(output, Buffer.from(shot.data, 'base64'))
   console.log(`${output} (${width} x ${size.h} px${mobile ? ', téléphone' : ''})`)
   ws.close()

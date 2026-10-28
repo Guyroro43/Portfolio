@@ -62,10 +62,232 @@
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
 
   body {
     font-family: var(--font-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+  }
+
+  /* Une section reçoit le focus après un clic dans le menu : pas de cadre autour d'elle. */
+  [tabindex='-1']:focus {
+    outline: none;
+  }
+}
+
+/*
+ * Animations du site public. Seuls transform et opacity bougent.
+ * Les durées et courbes reprennent celles des maquettes (design/Main.dc.html et Mobile.dc.html).
+ */
+@layer components {
+  /* Chargement du haut de page */
+  .a-up {
+    animation: rise-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0s) both;
+  }
+  .a-draw {
+    transform-origin: left center;
+    animation: draw-x 0.8s cubic-bezier(0.6, 0.05, 0.2, 1) 0.5s both;
+  }
+  .a-photo {
+    animation: photo-in 0.9s ease-out 0.2s both;
+  }
+
+  /* Boucles : halos, grille Adinkra, bande de noms, indicateur de défilement */
+  .a-aurora1 {
+    animation: aurora 19s ease-in-out infinite;
+    --ax: 90px;
+    --ay: 50px;
+    --as: 1.15;
+  }
+  .a-aurora2 {
+    animation: aurora 23s ease-in-out infinite;
+    --ax: -80px;
+    --ay: -60px;
+    --as: 1.1;
+  }
+  .a-cell {
+    opacity: 0.1;
+    animation: cell-glow var(--d, 4s) ease-in-out var(--dl, 0s) infinite;
+  }
+  .a-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .a-cue {
+    animation: cue 1.8s ease-in-out infinite;
+  }
+
+  /* Survols, seulement avec une souris */
+  .lift {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .lift .arr {
+    transition: transform 0.2s ease;
+  }
+  .lift .zoom {
+    transition: transform 0.5s ease;
+  }
+  .btn {
+    transition:
+      transform 0.2s ease,
+      filter 0.2s ease;
+  }
+  @media (hover: hover) {
+    .lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px -24px color-mix(in srgb, var(--c-bg-dark) 50%, transparent);
+    }
+    .lift:hover .arr {
+      transform: translateX(4px);
+    }
+    .lift:hover .zoom {
+      transform: scale(1.05);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+    }
+    .marquee:hover .a-marquee {
+      animation-play-state: paused;
+    }
+  }
+
+  /* Téléphone : mêmes animations, en plus court */
+  @media (max-width: 767px) {
+    .a-up {
+      animation-duration: 0.5s;
+      --rise: 18px;
+    }
+    .a-draw {
+      animation-duration: 0.7s;
+      animation-delay: 0.4s;
+    }
+    .a-photo {
+      animation-duration: 0.8s;
+      animation-delay: 0s;
+      --photo-scale: 1.05;
+    }
+    .a-aurora1 {
+      --ax: 40px;
+      --ay: 30px;
+      --as: 1.12;
+    }
+    .a-aurora2 {
+      --ax: -30px;
+      --ay: -40px;
+    }
+    .a-marquee {
+      animation-duration: 24s;
+    }
+  }
+
+  /*
+   * Révélations au défilement. L'élément est caché seulement si JavaScript tourne et si
+   * l'appareil accepte les animations : sinon, tout reste visible.
+   * Le script (components/site/site-effects.tsx) pose data-shown quand l'élément arrive à l'écran.
+   * Le remplissage « backwards » rend la main aux survols une fois l'animation finie.
+   */
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    :is([data-reveal], [data-reveal-step]):not([data-shown]) {
+      opacity: 0;
+    }
+    :is([data-reveal], [data-reveal-step])[data-shown] {
+      animation: rise-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0s) backwards;
+    }
+    [data-timeline-line] {
+      transform: scaleY(0);
+    }
+  }
+  [data-timeline-line] {
+    transform-origin: top center;
+  }
+
+  /* Ombre du menu dès qu'on descend, sans JavaScript, là où le navigateur le permet */
+  @supports (animation-timeline: scroll()) {
+    .header-shadow {
+      animation: header-shadow linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 64px;
+    }
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--rise, 24px));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(var(--photo-scale, 1.06));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(var(--ax), var(--ay)) scale(var(--as));
+  }
+}
+@keyframes cell-glow {
+  0%,
+  40%,
+  75%,
+  100% {
+    opacity: 0.1;
+  }
+  55% {
+    opacity: 0.95;
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes cue {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70%,
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+@keyframes header-shadow {
+  to {
+    box-shadow: 0 12px 32px -16px rgb(0 0 0 / 0.55);
   }
 }
 

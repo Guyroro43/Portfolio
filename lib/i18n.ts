@@ -11,7 +11,12 @@ export function isLocale(value: string): value is Locale {
 /** Texte dans la langue demandée. Une case anglaise vide affiche le français. */
 export function t(text: I18n, lang: Locale): string {
   if (lang === 'en' && text.en.trim() !== '') return text.en
-  return text.fr
+  return frenchSpacing(text.fr)
+}
+
+/** Espace insécable avant : ; ! ? et », pour qu'ils ne partent jamais seuls à la ligne. */
+function frenchSpacing(text: string): string {
+  return text.replace(/ ([:;!?»])/g, ' $1').replace(/« /g, '« ')
 }
 
 /** Adresse de la page d'accueil dans une langue : le français est à la racine. */
