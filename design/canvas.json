@@ -1,0 +1,43 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-28T20:08:00Z"},
+  "title": "Portfolio ANASSE",
+  "launch": {"view": "canvas", "page": "admin"},
+  "pages": [
+    {"id": "site", "name": "Site public"},
+    {"id": "admin", "name": "Espace admin"}
+  ],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 7000, "title": "Accueil, ordinateur", "expand": "fill"},
+    "Mobile.dc.html": {"x": 2000, "y": 0, "w": 390, "h": 10200, "title": "Accueil, téléphone"},
+    "Login.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "1. Connexion", "page": "admin", "expand": "fill", "is_interactive": true},
+    "Dashboard.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1000, "title": "2. Vue d'ensemble", "page": "admin", "expand": "fill", "is_interactive": true},
+    "Projects.dc.html": {"x": 0, "y": 1120, "w": 1440, "h": 1160, "title": "3. Section Projets", "page": "admin", "expand": "fill", "is_interactive": true},
+    "ProjectEdit.dc.html": {"x": 1520, "y": 1120, "w": 1440, "h": 1260, "title": "4. Modifier un projet", "page": "admin", "expand": "fill", "is_interactive": true},
+    "Theme.dc.html": {"x": 0, "y": 2500, "w": 1440, "h": 1100, "title": "5. Apparence", "page": "admin", "expand": "fill", "is_interactive": true},
+    "Media.dc.html": {"x": 1520, "y": 2500, "w": 1440, "h": 1040, "title": "6. Photos", "page": "admin", "expand": "fill", "is_interactive": true}
+  },
+  "order": ["Main.dc.html", "Mobile.dc.html", "Login.dc.html", "Dashboard.dc.html", "Projects.dc.html", "ProjectEdit.dc.html", "Theme.dc.html", "Media.dc.html"],
+  "notes": {
+    "titre": {"x": 0, "y": -360, "text": "Portfolio ANASSE, site public", "kind": "title1", "maxW": 2390},
+    "partout": {"x": 1520, "y": 0, "w": 380, "size": "m", "fill": "orange", "text": "Partout sur le site\n\nOn n'anime que la position et la transparence des éléments : c'est ce qui garde la page fluide, même sur un téléphone moyen.\n\nSi la personne a activé « réduire les animations » sur son appareil, tout s'affiche directement, sans mouvement.\n\nBouton FR / EN : la page change de langue sans se recharger. Chaque texte aura sa version anglaise dans l'admin."},
+    "menu": {"x": 1520, "y": 420, "w": 380, "size": "m", "fill": "blue", "text": "Menu\n\nFixé en haut. Fond indigo un peu transparent, avec un flou derrière. Une ombre légère apparaît dès qu'on commence à descendre."},
+    "hero": {"x": 1520, "y": 700, "w": 380, "size": "m", "fill": "blue", "text": "Haut de page\n\nGrille de symboles Adinkra en fond : chaque case s'allume en ocre puis s'éteint, à son rythme (2,6 à 5,2 s). Deux halos, indigo et ocre, dérivent lentement (19 et 23 s).\n\nAu chargement : ton nom monte (0,6 s), le trait ocre se dessine (0,8 s), la photo apparaît avec un léger zoom arrière.\n\nLes chiffres comptent de 0 jusqu'à leur valeur en 3 s, en ralentissant sur la fin : 1, 2, 3... 330. Le « /400 » reste fixe. D1 apparaît sans compter."},
+    "bande": {"x": 1520, "y": 1300, "w": 380, "size": "m", "fill": "blue", "text": "Bande de noms\n\nDéfile en continu, un tour toutes les 30 s. S'arrête quand la souris passe dessus."},
+    "apropos": {"x": 1520, "y": 1520, "w": 380, "size": "m", "fill": "blue", "text": "À propos\n\nLe texte puis la carte « En bref » montent en fondu quand la section arrive à l'écran, avec un petit décalage entre les deux."},
+    "projets": {"x": 1520, "y": 1900, "w": 380, "size": "m", "fill": "blue", "text": "Projets\n\nLes cartes arrivent en cascade quand on descend.\n\nAu survol : la carte monte de 4 px, son ombre grandit, la flèche glisse vers la droite et la capture grossit de 5 %."},
+    "parcours": {"x": 1520, "y": 3150, "w": 380, "size": "m", "fill": "blue", "text": "Parcours\n\nLa ligne ocre se dessine au fil du défilement. Chaque étape apparaît quand la ligne l'atteint.\n\nSur ordinateur, le titre à gauche reste en place pendant qu'on descend la liste."},
+    "competences": {"x": 1520, "y": 4000, "w": 380, "size": "m", "fill": "blue", "text": "Compétences\n\nLes trois cartes montent en cascade, comme pour les projets."},
+    "horscadre": {"x": 1520, "y": 4640, "w": 380, "size": "m", "fill": "blue", "text": "Hors du cadre\n\nAu survol, l'image grossit doucement. Sur téléphone, pas de survol : les cartes apparaissent simplement en descendant."},
+    "galerie": {"x": 1520, "y": 5380, "w": 380, "size": "m", "fill": "blue", "text": "Galerie\n\nUn clic sur une photo l'ouvre en grand, fond assombri, avec des flèches pour passer à la suivante. Sur téléphone, on glisse du doigt."},
+    "contact": {"x": 1520, "y": 6240, "w": 380, "size": "m", "fill": "blue", "text": "Contact\n\nLes trois cartes montent l'une après l'autre. Le bouton « Copier » met l'adresse email dans le presse-papier et affiche « Copié » pendant 2 s."},
+    "mobile": {"x": 2470, "y": 0, "w": 360, "size": "m", "fill": "orange", "text": "Version téléphone\n\nTa photo passe tout en haut, comme demandé.\n\nMêmes animations, en plus court. Le menu s'ouvre par le bouton à trois traits.\n\nLes boutons font au moins 44 px de haut pour le pouce."},
+    "admintitre": {"x": 0, "y": -360, "page": "admin", "text": "Espace admin, sur ordinateur", "kind": "title1", "maxW": 2960},
+    "adminpublier": {"x": 3040, "y": 0, "w": 380, "size": "m", "fill": "orange", "page": "admin", "text": "Publier d'abord\n\nChaque enregistrement part dans un brouillon. Le site en ligne ne bouge pas.\n\n« Aperçu » ouvre le site avec tes brouillons, visible par toi seul.\n\n« Publier » met tout en ligne d'un coup. Avant ça, chaque brouillon peut être annulé un par un."},
+    "adminranger": {"x": 3040, "y": 560, "w": 380, "size": "m", "fill": "blue", "page": "admin", "text": "Ranger\n\nTout ce qui porte la poignée à six points se déplace à la souris : sections, projets, étapes, photos. L'ordre part aussi dans le brouillon."},
+    "adminlangues": {"x": 3040, "y": 1120, "w": 380, "size": "m", "fill": "blue", "page": "admin", "text": "Deux langues\n\nChaque texte a sa case français et sa case anglais, côte à côte.\n\nSi une case anglaise reste vide, le site en anglais affiche le français, et l'admin te le signale en orange."},
+    "adminconnexion": {"x": 3040, "y": 1660, "w": 380, "size": "m", "fill": "blue", "page": "admin", "text": "Connexion\n\nUn seul compte, le tien. Il n'y a aucun bouton pour créer un compte.\n\nL'admin vit à l'adresse /admin de ton site. Il n'apparaît nulle part sur le site public."},
+    "adminapparence": {"x": 3040, "y": 2500, "w": 380, "size": "m", "fill": "blue", "page": "admin", "text": "Couleurs et polices\n\nChaque couleur est vérifiée contre son fond. Si un texte devient trop pâle pour être lu, l'admin t'avertit avant que tu publies.\n\nLes polices se choisissent dans une liste courte, préparée à l'avance : elles s'affichent sans délai et le site reste rapide."}
+  },
+  "designSystems": []
+}

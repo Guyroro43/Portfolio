@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Admin, apparence</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3EE}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+.nav-h{transition:background-color .15s ease,color .15s ease}
+.nav-h:hover{background:rgba(255,255,255,.06);color:#F4F1EA}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1100px; background: #F5F3EE; color: #151842; font-family: Inter, system-ui, sans-serif">
+
+<aside aria-label="Menu de l'admin" style="flex: 0 0 248px; background: #0B0E2E; color: #C9CBE3; padding: 20px 14px; display: flex; flex-direction: column; gap: 22px; box-sizing: border-box">
+<a href="Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 6px 10px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F4F1EA">
+<svg viewBox="0 0 48 48" width="22" height="22" fill="none" stroke="#E2A33A" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<span>ANASSE<span style="color: #E2A33A">.</span></span>
+<span style="margin-left: auto; padding: 3px 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); font: 600 11px Inter, system-ui, sans-serif; color: #C9CBE3">admin</span>
+</a>
+<nav aria-label="Pages de l'admin" style="display: flex; flex-direction: column; gap: 2px">
+<a href="Dashboard.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 500; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>Vue d'ensemble</a>
+<a href="Theme.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 600; background: rgba(226, 163, 58, 0.14); color: #F2C574"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>Apparence</a>
+<a href="Media.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 500; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 22H4a2 2 0 0 1-2-2V6"></path><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"></path><circle cx="12" cy="8" r="2"></circle><rect width="16" height="16" x="6" y="2" rx="2"></rect></svg>Photos</a>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px; padding: 0 12px; font-size: 12px; font-weight: 600; color: #8F93BF">Sections du site</p>
+<sc-for list="{{side}}" as="n" hint-placeholder-count="7">
+<a href="{{n.href}}" class="nav-h" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 12px; border-radius: 8px; font-size: 13px; color: #B9BCD9"><span style="width: 20px; font-size: 11px; color: #8F93BF">{{n.num}}</span>{{n.name}}</a>
+</sc-for>
+</div>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08)">
+<a href="Main.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"></path></svg>Voir le site</a>
+<a href="Login.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line></svg>Se déconnecter</a>
+</div>
+</aside>
+
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+<header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; background: #FFFFFF; border-bottom: 1px solid #E6E1D6">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0; font-size: 12px; color: #5A5F80">Espace admin</p>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Apparence</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #FBEFD9; color: #7A4E08; font-size: 13px; font-weight: 600"><span style="width: 8px; height: 8px; border-radius: 50%; background: #C98A1E"></span>3 modifications pas encore publiées</span>
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 10px; border: 1px solid #D9D3C5; background: #FFFFFF; font-size: 14px; font-weight: 600; box-sizing: border-box"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>Aperçu</a>
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #E2A33A; color: #0B0E2E; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>Publier</button>
+</div>
+</header>
+
+<main style="padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; box-sizing: border-box">
+
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+<p role="status" style="margin: 0; display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 14px; background: #FDF1E2; border: 1px solid #F0D2A8; font-size: 14px; line-height: 1.5; color: #6B4306">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span><strong>1 couleur à revoir avant de publier.</strong> Le texte secondaire est trop pâle sur le fond clair : les paragraphes deviennent difficiles à lire.</span>
+</p>
+
+<section aria-labelledby="titre-couleurs" style="background: #FFFFFF; border: 1px solid #E6E1D6; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 6px">
+<h2 id="titre-couleurs" style="margin: 0 0 10px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 20px; font-weight: 700">Couleurs</h2>
+<sc-for list="{{colors}}" as="c" hint-placeholder-count="6">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid #EEE9DD">
+<span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(21, 24, 66, 0.12); background: {{c.hex}}"></span>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<label for="{{c.id}}" style="font-size: 14px; font-weight: 600">{{c.name}}</label>
+<span style="font-size: 12px; color: #5A5F80">{{c.use}}</span>
+</div>
+<input id="{{c.id}}" type="text" value="{{c.hex}}" style="flex: none; width: 112px; min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1px solid {{c.inputBorder}}; background: #FFFFFF; color: #151842; font: 500 14px ui-monospace, Menlo, monospace; box-sizing: border-box">
+<span style="flex: none; min-width: 150px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: {{c.stateFg}}"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{c.stateDot}}"></span>{{c.state}}</span>
+</div>
+</sc-for>
+<p style="margin: 6px 0 0; font-size: 13px; color: #5A5F80">Suggestion pour le texte secondaire : #4B5075, la couleur d'origine.</p>
+</section>
+
+<section aria-labelledby="titre-polices" style="background: #FFFFFF; border: 1px solid #E6E1D6; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<h2 id="titre-polices" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 20px; font-weight: 700">Polices</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 14px; border: 1px solid #EEE9DD">
+<label for="f-titre" style="font-size: 13px; font-weight: 600">Titres</label>
+<select id="f-titre" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #D9D3C5; background: #FFFFFF; color: #151842; font: 400 14px Inter, system-ui, sans-serif">
+<option>Bricolage Grotesque</option>
+<option>Sora</option>
+<option>Space Grotesk</option>
+<option>Fraunces</option>
+</select>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 30px; font-weight: 800; line-height: 1.05">Guy Roland Obodjé</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 14px; border: 1px solid #EEE9DD">
+<label for="f-texte" style="font-size: 13px; font-weight: 600">Texte</label>
+<select id="f-texte" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #D9D3C5; background: #FFFFFF; color: #151842; font: 400 14px Inter, system-ui, sans-serif">
+<option>Inter</option>
+<option>DM Sans</option>
+<option>Manrope</option>
+<option>Work Sans</option>
+</select>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2B2F57">Je conçois et développe des produits web de bout en bout, de la plateforme EdTech ANTA aux missions de la Junior Entreprise ESCA.</p>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; color: #5A5F80">Une liste courte de polices, préparées à l'avance pour s'afficher sans délai.</p>
+</section>
+
+<div style="display: flex; justify-content: flex-start">
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 10px; border: 1px solid #D9D3C5; background: #FFFFFF; color: #151842; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>Revenir au thème d'origine</button>
+</div>
+</div>
+
+<aside aria-labelledby="titre-apercu-theme" style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 12px; position: sticky; top: 24px">
+<h2 id="titre-apercu-theme" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 18px; font-weight: 700">Aperçu en direct</h2>
+<div style="border-radius: 20px; overflow: hidden; border: 1px solid #E6E1D6">
+<div style="padding: 26px 22px; background: #0B0E2E; color: #F4F1EA; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 28px; font-weight: 800; line-height: 1">Guy Roland Obodjé</p>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 18px; font-weight: 600; color: #C9CBE3">dit <span style="color: #E2A33A; font-weight: 800">ANASSE</span></p>
+<span aria-hidden="true" style="display: block; width: 72px; height: 3px; border-radius: 3px; background: #E2A33A"></span>
+<span style="align-self: flex-start; padding: 9px 16px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-size: 13px; font-weight: 600">Voir mes projets</span>
+</div>
+<div style="padding: 22px; background: #F6F3EC; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 12px; font-weight: 600; color: #8A5A0C">02 · Projets</p>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px; font-weight: 700; color: #151842">Des produits construits de bout en bout</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #9A9DB8">Conception, technique et mise sur le marché.</p>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5A5F80">La ligne grise pâle, en bas, montre le problème signalé.</p>
+</aside>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const side = [
+      { num: '00', name: 'Haut de page', href: '#' },
+      { num: '01', name: 'À propos', href: '#' },
+      { num: '02', name: 'Projets', href: 'Projects.dc.html' },
+      { num: '03', name: 'Parcours', href: '#' },
+      { num: '04', name: 'Compétences', href: '#' },
+      { num: '05', name: 'Hors du cadre', href: '#' },
+      { num: '06', name: 'Galerie', href: '#' },
+      { num: '07', name: 'Contact', href: '#' }
+    ];
+    const ok = { state: 'Lisible', stateFg: '#17603F', stateDot: '#1F8A5B', inputBorder: '#D9D3C5' };
+    const colors = [
+      Object.assign({ id: 'c1', name: 'Fond sombre', use: 'Haut de page, galerie', hex: '#0B0E2E' }, ok),
+      Object.assign({ id: 'c2', name: 'Fond indigo', use: 'Parcours, contact, carte du projet phare', hex: '#12164A' }, ok),
+      Object.assign({ id: 'c3', name: 'Fond clair', use: 'À propos, projets, compétences', hex: '#F6F3EC' }, ok),
+      Object.assign({ id: 'c4', name: 'Accent', use: 'Boutons, trait sous le nom, symboles', hex: '#E2A33A' }, ok),
+      Object.assign({ id: 'c5', name: 'Texte principal', use: 'Titres et textes sur fond clair', hex: '#151842' }, ok),
+      { id: 'c6', name: 'Texte secondaire', use: 'Paragraphes sur fond clair', hex: '#9A9DB8', state: 'Trop pâle : 2,4 pour 1, il faut 4,5', stateFg: '#8C4A06', stateDot: '#D9822B', inputBorder: '#D9822B' }
+    ];
+    return { side, colors };
+  }
+}
+</script>
+</body>
+</html>

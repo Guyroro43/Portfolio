@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Admin, vue d'ensemble</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3EE}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+.nav-h{transition:background-color .15s ease,color .15s ease}
+.nav-h:hover{background:rgba(255,255,255,.06);color:#F4F1EA}
+.row-h{transition:background-color .15s ease}
+.row-h:hover{background:#FAF8F3}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 1000px; background: #F5F3EE; color: #151842; font-family: Inter, system-ui, sans-serif">
+
+<aside aria-label="Menu de l'admin" style="flex: 0 0 248px; background: #0B0E2E; color: #C9CBE3; padding: 20px 14px; display: flex; flex-direction: column; gap: 22px; box-sizing: border-box">
+<a href="Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 6px 10px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F4F1EA">
+<svg viewBox="0 0 48 48" width="22" height="22" fill="none" stroke="#E2A33A" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<span>ANASSE<span style="color: #E2A33A">.</span></span>
+<span style="margin-left: auto; padding: 3px 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); font: 600 11px Inter, system-ui, sans-serif; color: #C9CBE3">admin</span>
+</a>
+<nav aria-label="Pages de l'admin" style="display: flex; flex-direction: column; gap: 2px">
+<a href="Dashboard.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 600; background: rgba(226, 163, 58, 0.14); color: #F2C574"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>Vue d'ensemble</a>
+<a href="Theme.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 500; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>Apparence</a>
+<a href="Media.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 500; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 22H4a2 2 0 0 1-2-2V6"></path><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"></path><circle cx="12" cy="8" r="2"></circle><rect width="16" height="16" x="6" y="2" rx="2"></rect></svg>Photos</a>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px; padding: 0 12px; font-size: 12px; font-weight: 600; color: #8F93BF">Sections du site</p>
+<sc-for list="{{side}}" as="n" hint-placeholder-count="7">
+<a href="{{n.href}}" class="nav-h" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 12px; border-radius: 8px; font-size: 13px; color: #B9BCD9"><span style="width: 20px; font-size: 11px; color: #8F93BF">{{n.num}}</span>{{n.name}}</a>
+</sc-for>
+</div>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08)">
+<a href="Main.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"></path></svg>Voir le site</a>
+<a href="Login.dc.html" class="nav-h" style="display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 0 12px; border-radius: 10px; font-size: 14px; color: #C9CBE3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line></svg>Se déconnecter</a>
+</div>
+</aside>
+
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+<header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; background: #FFFFFF; border-bottom: 1px solid #E6E1D6">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0; font-size: 12px; color: #5A5F80">Espace admin</p>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Vue d'ensemble</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #FBEFD9; color: #7A4E08; font-size: 13px; font-weight: 600"><span style="width: 8px; height: 8px; border-radius: 50%; background: #C98A1E"></span>3 modifications pas encore publiées</span>
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 10px; border: 1px solid #D9D3C5; background: #FFFFFF; font-size: 14px; font-weight: 600; box-sizing: border-box"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>Aperçu</a>
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #E2A33A; color: #0B0E2E; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>Publier</button>
+</div>
+</header>
+
+<main style="padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; box-sizing: border-box">
+
+<section aria-labelledby="titre-sections" style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E6E1D6; border-radius: 20px; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 24px 24px 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="titre-sections" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px; font-weight: 700">Ton site, section par section</h2>
+<p style="margin: 0; font-size: 14px; color: #5A5F80; max-width: 460px">Glisse une section pour changer sa place sur la page. L'interrupteur la masque ou l'affiche.</p>
+</div>
+<div style="position: relative">
+<button type="button" aria-expanded="true" style="display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 10px; border: 0; background: #2A3399; color: #FFFFFF; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Ajouter une section</button>
+<div style="position: absolute; right: 0; top: 50px; z-index: 5; width: 300px; padding: 8px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E6E1D6; box-shadow: 0 24px 48px -20px rgba(11, 14, 46, 0.35); display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0; padding: 8px 10px 6px; font-size: 12px; font-weight: 600; color: #5A5F80">Choisis une forme</p>
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="5">
+<button type="button" class="row-h" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px; border: 0; border-radius: 10px; background: transparent; text-align: left; cursor: pointer"><span style="font: 600 14px Inter, system-ui, sans-serif; color: #151842">{{k.name}}</span><span style="font: 400 12px Inter, system-ui, sans-serif; color: #5A5F80">{{k.hint}}</span></button>
+</sc-for>
+</div>
+</div>
+</div>
+
+<ol style="list-style: none; margin: 0; padding: 0 12px 12px; display: flex; flex-direction: column">
+<sc-for list="{{sections}}" as="s" hint-placeholder-count="9">
+<li style="display: flex; flex-direction: column">
+<sc-if value="{{s.dropBefore}}" hint-placeholder-val="{{false}}"><span aria-hidden="true" style="display: block; height: 3px; margin: 2px 12px; border-radius: 3px; background: #E2A33A"></span></sc-if>
+<div class="row-h" style="display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 0 12px; border-radius: 12px; border: {{s.border}}; background: {{s.bg}}; box-shadow: {{s.shadow}}; transform: {{s.tilt}}">
+<button type="button" aria-label="Déplacer {{s.name}}" style="flex: none; width: 32px; height: 44px; border: 0; background: transparent; color: #8A8FAE; cursor: grab; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="1"></circle><circle cx="9" cy="5" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="15" cy="12" r="1"></circle><circle cx="15" cy="5" r="1"></circle><circle cx="15" cy="19" r="1"></circle></svg></button>
+<span style="flex: none; width: 28px; font-size: 13px; font-weight: 600; color: #8A5A0C">{{s.num}}</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 600">{{s.name}}</span>
+<span style="font-size: 13px; color: #5A5F80">{{s.detail}}</span>
+</div>
+<button type="button" role="switch" aria-checked="true" aria-label="Afficher {{s.name}} sur le site" style="flex: none; width: 44px; height: 26px; border: 0; border-radius: 999px; background: #2A3399; padding: 3px; display: flex; justify-content: flex-end; cursor: pointer; box-sizing: border-box"><span style="width: 20px; height: 20px; border-radius: 50%; background: #FFFFFF"></span></button>
+<a href="{{s.href}}" style="flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid #D9D3C5; font-size: 13px; font-weight: 600; box-sizing: border-box"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>Modifier</a>
+</div>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<section aria-labelledby="titre-enligne" style="background: #FFFFFF; border: 1px solid #E6E1D6; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<h2 id="titre-enligne" style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><span style="width: 9px; height: 9px; border-radius: 50%; background: #1F8A5B"></span>Le site est en ligne</h2>
+<p style="margin: 0; font-size: 13px; color: #5A5F80">Dernière publication : aujourd'hui, 19 h 40</p>
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 13px; font-weight: 600; color: #2A3399; word-break: break-all">portfolio-one-gilt-o8onabfb7f.vercel.app</a>
+</section>
+
+<section aria-labelledby="titre-brouillon" style="background: #FFFFFF; border: 1px solid #E6E1D6; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 6px">
+<h2 id="titre-brouillon" style="margin: 0 0 6px; font-size: 15px; font-weight: 600">Pas encore publié (3)</h2>
+<sc-for list="{{drafts}}" as="d" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid #EEE9DD">
+<div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 13px; font-weight: 600">{{d.where}}</span><span style="font-size: 13px; color: #5A5F80">{{d.what}}</span></div>
+<button type="button" style="flex: none; min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #D9D3C5; background: #FFFFFF; font: 600 12px Inter, system-ui, sans-serif; color: #151842; cursor: pointer">Annuler</button>
+</div>
+</sc-for>
+<button type="button" style="margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; border-radius: 10px; border: 0; background: #E2A33A; color: #0B0E2E; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer">Tout publier</button>
+</section>
+</div>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const side = [
+      { num: '00', name: 'Haut de page', href: '#' },
+      { num: '01', name: 'À propos', href: '#' },
+      { num: '02', name: 'Projets', href: 'Projects.dc.html' },
+      { num: '03', name: 'Parcours', href: '#' },
+      { num: '04', name: 'Compétences', href: '#' },
+      { num: '05', name: 'Hors du cadre', href: '#' },
+      { num: '06', name: 'Galerie', href: '#' },
+      { num: '07', name: 'Contact', href: '#' }
+    ];
+    const plain = { border: '1px solid transparent', bg: 'transparent', shadow: 'none', tilt: 'none', dropBefore: false };
+    const sections = [
+      Object.assign({}, plain, { num: '00', name: 'Haut de page', detail: 'Photo, nom, 3 chiffres', href: '#' }),
+      Object.assign({}, plain, { num: '', name: 'Bande de noms', detail: '4 noms qui défilent', href: '#' }),
+      Object.assign({}, plain, { num: '01', name: 'À propos', detail: '2 paragraphes, 6 lignes « En bref »', href: '#' }),
+      Object.assign({}, plain, { num: '02', name: 'Projets', detail: '6 projets', href: 'Projects.dc.html', dropBefore: true }),
+      Object.assign({}, plain, { num: '03', name: 'Parcours', detail: '5 étapes. En train d’être déplacée', href: '#', border: '1px solid #E2A33A', bg: '#FFFDF8', shadow: '0 18px 36px -18px rgba(11, 14, 46, 0.4)', tilt: 'rotate(-0.6deg)' }),
+      Object.assign({}, plain, { num: '04', name: 'Compétences', detail: '3 groupes, 15 étiquettes', href: '#' }),
+      Object.assign({}, plain, { num: '05', name: 'Hors du cadre', detail: '3 cartes', href: '#' }),
+      Object.assign({}, plain, { num: '06', name: 'Galerie', detail: '8 photos', href: '#' }),
+      Object.assign({}, plain, { num: '07', name: 'Contact', detail: '3 liens', href: '#' })
+    ];
+    const kinds = [
+      { name: 'Texte et photo', hint: 'Comme À propos' },
+      { name: 'Cartes', hint: 'Comme Projets ou Hors du cadre' },
+      { name: 'Frise de dates', hint: 'Comme Parcours' },
+      { name: 'Galerie', hint: 'Une grille de photos' },
+      { name: 'Liens', hint: 'Comme Contact' }
+    ];
+    const drafts = [
+      { where: 'Projets', what: 'Postula ajouté' },
+      { where: 'À propos', what: 'Deuxième paragraphe modifié' },
+      { where: 'Apparence', what: 'Couleur du texte secondaire' }
+    ];
+    return { side, sections, kinds, drafts };
+  }
+}
+</script>
+</body>
+</html>

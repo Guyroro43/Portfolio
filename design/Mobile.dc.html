@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Portfolio ANASSE, accueil téléphone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0B0E2E}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+@keyframes aurora1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.12)}}
+@keyframes aurora2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,-40px) scale(1.1)}}
+@keyframes cellGlow{0%,40%,75%,100%{opacity:.1}55%{opacity:.95}}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes drawX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes photoIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.a-aurora1{animation:aurora1 19s ease-in-out infinite}
+.a-aurora2{animation:aurora2 23s ease-in-out infinite}
+.a-cell{animation:cellGlow var(--d,4s) ease-in-out var(--dl,0s) infinite}
+.a-up{animation:riseIn .5s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
+.a-draw{transform-origin:left center;animation:drawX .7s cubic-bezier(.6,.05,.2,1) .4s both}
+.a-photo{animation:photoIn .8s ease-out both}
+.a-marquee{animation:marquee 24s linear infinite}
+@supports (animation-timeline: view()){
+.rv{animation:riseIn linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+.tl{transform-origin:top center;animation:growY linear both;animation-timeline:view();animation-range:entry 30% exit 70%}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div style="width: 390px; background: #0B0E2E; color: #F4F1EA; font-family: Inter, system-ui, sans-serif; overflow: hidden">
+
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(11, 14, 46, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255, 255, 255, 0.08)">
+<div style="padding: 10px 16px 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<a href="#top" style="display: flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F4F1EA">
+<svg viewBox="0 0 48 48" width="22" height="22" fill="none" stroke="#E2A33A" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<span>ANASSE<span style="color: #E2A33A">.</span></span>
+</a>
+<div style="display: flex; align-items: center; gap: 8px">
+<div role="group" aria-label="Langue du site" style="display: flex; padding: 3px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.16)">
+<button type="button" aria-pressed="true" style="border: 0; border-radius: 999px; min-width: 44px; min-height: 38px; background: #E2A33A; color: #0B0E2E; font: 600 13px Inter, system-ui, sans-serif">FR</button>
+<button type="button" aria-pressed="false" style="border: 0; border-radius: 999px; min-width: 44px; min-height: 38px; background: transparent; color: #C9CBE3; font: 600 13px Inter, system-ui, sans-serif">EN</button>
+</div>
+<button type="button" aria-label="Ouvrir le menu" style="width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.04); color: #F4F1EA; display: flex; align-items: center; justify-content: center">
+<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="14" y1="17" y2="17"></line></svg>
+</button>
+</div>
+</div>
+</header>
+
+<section id="top" style="position: relative; overflow: hidden; background: #0B0E2E; padding: 28px 24px 56px">
+<div aria-hidden="true" class="a-aurora1" style="position: absolute; left: -160px; top: -120px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(58, 67, 168, 0.55) 0%, rgba(58, 67, 168, 0) 65%)"></div>
+<div aria-hidden="true" class="a-aurora2" style="position: absolute; right: -160px; top: 320px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(226, 163, 58, 0.24) 0%, rgba(226, 163, 58, 0) 65%)"></div>
+<div aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 390px; height: 468px; display: grid; grid-template-columns: repeat(5, 78px); -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 95%); mask-image: linear-gradient(to bottom, #000 20%, transparent 95%)">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="5">
+<div style="width: 78px; height: 78px; box-sizing: border-box; border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; color: #E2A33A">
+<div class="a-cell" style="--d: {{c.d}}; --dl: {{c.dl}}; width: 30px; height: 30px; opacity: 0.1">
+<sc-if value="{{c.k0}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg></sc-if>
+<sc-if value="{{c.k1}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><polygon points="24,4 28.5,18 42,14 32,24 42,34 28.5,30 24,44 19.5,30 6,34 16,24 6,14 19.5,18"></polygon></svg></sc-if>
+<sc-if value="{{c.k2}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="7" y="7" width="34" height="34"></rect><rect x="16" y="16" width="16" height="16"></rect><path d="M7 7 L16 16 M41 7 L32 16 M7 41 L16 32 M41 41 L32 32"></path></svg></sc-if>
+<sc-if value="{{c.k3}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 L32 12 L16 20 L32 28 L16 36 L32 44"></path></svg></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 22px">
+<div class="a-photo" style="position: relative">
+<svg viewBox="0 0 48 48" width="120" height="120" fill="none" stroke="#E2A33A" stroke-width="1.2" aria-hidden="true" style="position: absolute; top: -30px; right: -30px; opacity: 0.55"><circle cx="24" cy="24" r="22"></circle><circle cx="24" cy="24" r="15"></circle><circle cx="24" cy="24" r="8"></circle></svg>
+<figure style="margin: 0; position: relative; height: 400px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); background: #141A4A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #8F93BF; text-align: center; padding: 20px; box-sizing: border-box">
+<svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<figcaption style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 15px; font-weight: 600; color: #C9CBE3">Ta photo en costume</span>
+<span style="font-size: 13px">Tout en haut sur téléphone</span>
+</figcaption>
+</figure>
+</div>
+
+<p class="a-up" style="margin: 0; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); font-size: 13px; color: #C9CBE3">
+<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#E2A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+Abidjan, Côte d'Ivoire
+</p>
+<h1 class="a-up d1" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 46px; line-height: 1; letter-spacing: -0.025em; color: #F4F1EA">Guy Roland Obodjé</h1>
+<div class="a-up d2" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 600; color: #C9CBE3">dit <span style="color: #E2A33A; font-weight: 800; letter-spacing: 0.02em">ANASSE</span></p>
+<span class="a-draw" aria-hidden="true" style="display: block; width: 96px; height: 4px; border-radius: 4px; background: #E2A33A"></span>
+</div>
+<p class="a-up d2" style="margin: 0; font-size: 19px; font-weight: 600; color: #F4F1EA">Élève ingénieur et bâtisseur de projets</p>
+<p class="a-up d3" style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9BCD9">Je conçois et développe des produits web de bout en bout, de la plateforme EdTech ANTA aux missions de la Junior Entreprise ESCA. Élève ingénieur en deuxième année du cycle ingénieur à l'ESCA (INP-HB, Côte d'Ivoire), spécialisation gestion et commerce.</p>
+<div class="a-up d3" style="display: flex; flex-direction: column; gap: 10px">
+<a href="#projets" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-weight: 600; font-size: 16px">Voir mes projets
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+<a href="#contact" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.24); color: #F4F1EA; font-weight: 600; font-size: 16px; box-sizing: border-box">Me contacter</a>
+</div>
+<div class="a-up d4" style="display: flex; flex-direction: column; border-radius: 18px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); margin-top: 6px">
+<div style="display: flex; align-items: center; gap: 16px; padding: 14px 18px">
+<span style="flex: none; width: 96px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; font-variant-numeric: tabular-nums">{{bac}}/400</span>
+<span style="font-size: 13px; line-height: 1.4; color: #B9BCD9">Bac 2023, major régional de l'Agnéby-Tiassa</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-top: 1px solid rgba(255, 255, 255, 0.08)">
+<span style="flex: none; width: 96px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; font-variant-numeric: tabular-nums">{{promo}}</span>
+<span style="font-size: 13px; line-height: 1.4; color: #B9BCD9">camarades de promo formés à Excel</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-top: 1px solid rgba(255, 255, 255, 0.08)">
+<span style="flex: none; width: 96px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px">D1</span>
+<span style="font-size: 13px; line-height: 1.4; color: #B9BCD9">en eFootball, plusieurs saisons de suite</span>
+</div>
+</div>
+</div>
+</section>
+
+<div style="background: #E2A33A; color: #0B0E2E; overflow: hidden">
+<div class="a-marquee" style="display: flex; width: max-content">
+<sc-for list="{{marquee}}" as="m" hint-placeholder-count="6">
+<div style="display: flex; align-items: center; gap: 20px; padding: 15px 10px">
+<span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px; white-space: nowrap">{{m.label}}</span>
+<svg viewBox="0 0 48 48" width="14" height="14" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="9"></circle></svg>
+</div>
+</sc-for>
+</div>
+</div>
+
+<section id="apropos" style="background: #F6F3EC; color: #151842; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 28px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">01 · À propos</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 38px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 700">Qui je suis</h2>
+<div style="display: flex; align-items: center; gap: 10px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M24 24 C 18 20 8 18 8 11 C 8 6 15 6 15 11 C 15 14 12 14 12 12"></path><path d="M24 24 C 30 20 40 18 40 11 C 40 6 33 6 33 11 C 33 14 36 14 36 12"></path><path d="M24 24 C 18 28 8 30 8 37 C 8 42 15 42 15 37 C 15 34 12 34 12 36"></path><path d="M24 24 C 30 28 40 30 40 37 C 40 42 33 42 33 37 C 33 34 36 34 36 36"></path></svg>
+<span style="font-size: 13px; color: #4B5075">Dwennimmen, l'humilité et la force</span>
+</div>
+</div>
+<div class="rv" style="display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.7; color: #2B2F57">
+<p style="margin: 0">Mon parcours commence à Yadio, où j'ai suivi ma scolarité primaire, avant le lycée à Agboville. J'y ai obtenu mon baccalauréat en 2023 en tant que major régional de l'Agnéby-Tiassa, avec une moyenne de 330/400. Deux années de classes préparatoires à l'INP-HB (2023-2025) m'ont ensuite mené, par concours, au cycle ingénieur en 2025.</p>
+<p style="margin: 0">Avant l'ingénierie, j'ai fait mes armes dans le commerce, comme agent commercial chez Belmor Cosmetic (2021-2022). Aujourd'hui, je suis Adjoint Chargé aux Traitements et Analyse de Données à la Junior Entreprise ESCA. Chez GoCab Innovation Lab, je m'occupe du produit GoBuy : suivi financier, rapports de la semaine et coordination sur le terrain.</p>
+</div>
+<aside class="rv" aria-label="En bref" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column">
+<h3 style="margin: 0 0 8px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 19px; font-weight: 700">En bref</h3>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-top: 1px solid #EEE9DD"><span style="font-size: 12px; font-weight: 600; color: #6A6E8E">Formation</span><span style="font-size: 15px; line-height: 1.45">Cycle ingénieur, ESCA / INP-HB, gestion et commerce</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-top: 1px solid #EEE9DD"><span style="font-size: 12px; font-weight: 600; color: #6A6E8E">Rôle à la JE</span><span style="font-size: 15px; line-height: 1.45">Adjoint Chargé aux Traitements et Analyse de Données, JE ESCA</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-top: 1px solid #EEE9DD"><span style="font-size: 12px; font-weight: 600; color: #6A6E8E">Chez GoCab</span><span style="font-size: 15px; line-height: 1.45">Produit GoBuy, GoCab Innovation Lab</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-top: 1px solid #EEE9DD"><span style="font-size: 12px; font-weight: 600; color: #6A6E8E">Bac 2023</span><span style="font-size: 15px; line-height: 1.45">Major régional de l'Agnéby-Tiassa (330/400)</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-top: 1px solid #EEE9DD"><span style="font-size: 12px; font-weight: 600; color: #6A6E8E">Avant</span><span style="font-size: 15px; line-height: 1.45">Agent commercial, Belmor Cosmetic (2021-2022)</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 0 0; border-top: 1px solid #EEE9DD"><span style="font-size: 12px; font-weight: 600; color: #6A6E8E">Localisation</span><span style="font-size: 15px; line-height: 1.45">Abidjan, Côte d'Ivoire</span></div>
+</aside>
+</section>
+
+<section id="projets" style="background: #F6F3EC; color: #151842; padding: 40px 24px 72px; display: flex; flex-direction: column; gap: 22px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">02 · Projets</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 36px; line-height: 1.06; letter-spacing: -0.02em; font-weight: 700">Des produits construits de bout en bout</h2>
+<p style="margin: 0; font-size: 16px; color: #4B5075">Conception, technique et mise sur le marché.</p>
+<div style="display: flex; align-items: center; gap: 10px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M24 4 V44"></path><path d="M24 10 L15 16 M24 10 L33 16 M24 18 L12 25 M24 18 L36 25 M24 26 L12 33 M24 26 L36 33 M24 34 L15 40 M24 34 L33 40"></path></svg>
+<span style="font-size: 13px; color: #4B5075">Aya, l'endurance et l'ingéniosité</span>
+</div>
+</div>
+
+<article class="rv" style="background: #12164A; color: #F4F1EA; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<div style="aspect-ratio: 16 / 10; background: #1A1F5C; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #8F93BF; font-size: 13px">
+<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<span>Capture d'ANTA, à ajouter depuis l'admin</span>
+</div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-size: 12px; font-weight: 600">Projet phare</span>
+<span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); color: #C9CBE3; font-size: 12px; font-weight: 600">En cours</span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1">ANTA</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BCD9">Plateforme EdTech d'apprentissage de l'anglais pensée pour les jeunes africains francophones. Modèle freemium, paiement Mobile Money et gamification par système de badges.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 12px; color: #C9CBE3">Next.js</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 12px; color: #C9CBE3">Tailwind CSS</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 12px; color: #C9CBE3">Supabase</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 12px; color: #C9CBE3">PostgreSQL</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 12px; color: #C9CBE3">Vercel</span>
+</div>
+<div style="display: flex; gap: 10px">
+<a href="https://antaelearn.vercel.app" style="flex: 1 1 0; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-weight: 600; font-size: 14px">Voir le site</a>
+<a href="https://github.com/Guyroro43/ANTANEW" style="flex: 1 1 0; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.24); color: #F4F1EA; font-weight: 600; font-size: 14px; box-sizing: border-box">Code source</a>
+</div>
+</div>
+</article>
+
+<sc-for list="{{projects}}" as="p" hint-placeholder-count="5">
+<article class="rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 23px; font-weight: 700">{{p.title}}</h3>
+<sc-if value="{{p.status}}" hint-placeholder-val="{{true}}"><span style="flex: none; padding: 5px 11px; border-radius: 999px; background: {{p.statusBg}}; color: {{p.statusFg}}; font-size: 12px; font-weight: 600">{{p.status}}</span></sc-if>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075">{{p.text}}</p>
+<p style="margin: 0; font-size: 12px; color: #6A6E8E">{{p.tags}}</p>
+<sc-if value="{{p.url}}" hint-placeholder-val="{{false}}"><a href="{{p.url}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; font-size: 14px; color: #2A3399">Voir le site
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a></sc-if>
+</article>
+</sc-for>
+</section>
+
+<section id="parcours" style="background: #12164A; color: #F4F1EA; padding: 72px 24px; display: flex; flex-direction: column; gap: 32px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">03 · Parcours</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 36px; line-height: 1.06; letter-spacing: -0.02em; font-weight: 700">De l'école de Yadio au cycle ingénieur</h2>
+<div style="display: flex; align-items: center; gap: 10px; color: #E2A33A">
+<svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4 L32 12 L16 20 L32 28 L16 36 L32 44"></path></svg>
+<span style="font-size: 13px; color: #B9BCD9">Nkyinkyim, l'initiative et la capacité d'adaptation</span>
+</div>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0 0 0 34px; position: relative; display: flex; flex-direction: column; gap: 32px">
+<span aria-hidden="true" style="position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: rgba(255, 255, 255, 0.12)"></span>
+<span aria-hidden="true" class="tl" style="position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: #E2A33A"></span>
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<li class="rv" style="position: relative; display: flex; flex-direction: column; gap: 4px">
+<span aria-hidden="true" style="position: absolute; left: -34px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: {{s.dot}}; border: 2px solid #E2A33A; box-sizing: border-box"></span>
+<p style="margin: 0; font-size: 12px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">{{s.date}}</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 21px; font-weight: 700">{{s.title}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #B9BCD9">{{s.text}}</p>
+</li>
+</sc-for>
+</ol>
+<p class="rv" style="margin: 0; padding: 16px 18px; border-radius: 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); font-size: 15px; line-height: 1.55; color: #C9CBE3"><span style="color: #E2A33A; font-weight: 600">En parallèle :</span> agent commercial chez Belmor Cosmetic (2021-2022).</p>
+</section>
+
+<section id="competences" style="background: #F6F3EC; color: #151842; padding: 72px 24px; display: flex; flex-direction: column; gap: 22px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">04 · Compétences</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 36px; line-height: 1.06; letter-spacing: -0.02em; font-weight: 700">Ce que je sais faire</h2>
+<div style="display: flex; align-items: center; gap: 10px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true"><circle cx="15" cy="15" r="7.5"></circle><circle cx="33" cy="15" r="7.5"></circle><circle cx="15" cy="33" r="7.5"></circle><circle cx="33" cy="33" r="7.5"></circle><rect x="20" y="20" width="8" height="8" rx="1"></rect></svg>
+<span style="font-size: 13px; color: #4B5075">Mate Masie, la sagesse et la connaissance</span>
+</div>
+</div>
+<sc-for list="{{skills}}" as="k" hint-placeholder-count="3">
+<article class="rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 21px; font-weight: 700">{{k.title}}</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{k.items}}" as="it" hint-placeholder-count="4">
+<span style="padding: 7px 11px; border-radius: 10px; background: #F1EEE6; font-size: 13px; color: #2B2F57">{{it}}</span>
+</sc-for>
+</div>
+</article>
+</sc-for>
+</section>
+
+<section id="horscadre" style="background: #EFEAE0; color: #151842; padding: 72px 24px; display: flex; flex-direction: column; gap: 22px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">05 · Hors du cadre</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 36px; line-height: 1.06; letter-spacing: -0.02em; font-weight: 700">Quand je ne travaille pas</h2>
+<div style="display: flex; align-items: center; gap: 10px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 42 C 12 34 6 26 6 18 C 6 11 11 7 16 7 C 21 7 24 11 24 15 C 24 11 27 7 32 7 C 37 7 42 11 42 18 C 42 26 36 34 24 42 Z"></path><path d="M24 15 C 22 21 16 21 16 17 C 16 13.5 20.5 13.5 20.5 16.5"></path><path d="M24 15 C 26 21 32 21 32 17 C 32 13.5 27.5 13.5 27.5 16.5"></path></svg>
+<span style="font-size: 13px; color: #4B5075">Sankofa, revenir à ses racines</span>
+</div>
+</div>
+<sc-for list="{{passions}}" as="h" hint-placeholder-count="3">
+<article class="rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 190px; background: #12164A; display: flex; align-items: center; justify-content: center; color: #8F93BF; font-size: 13px">{{h.img}}</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 12px; font-weight: 600; color: #8A5A0C">{{h.tag}}</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 21px; font-weight: 700">{{h.title}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #4B5075">{{h.text}}</p>
+</div>
+</article>
+</sc-for>
+</section>
+
+<section id="galerie" style="background: #0B0E2E; color: #F4F1EA; padding: 72px 24px; display: flex; flex-direction: column; gap: 22px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">06 · Galerie</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 36px; line-height: 1.06; letter-spacing: -0.02em; font-weight: 700">Quelques instantanés</h2>
+<p style="margin: 0; font-size: 16px; color: #B9BCD9">En dehors des lignes de code : promo, potes, uniforme d'apparat.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 120px; grid-auto-flow: dense; gap: 10px">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="8">
+<figure style="margin: 0; position: relative; border-radius: 14px; overflow: hidden; background: #141A4A; border: 1px solid rgba(255, 255, 255, 0.08); grid-row: span {{g.rows}}">
+<figcaption style="position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 10px 9px; background: linear-gradient(to top, rgba(11, 14, 46, 0.94), rgba(11, 14, 46, 0)); font-size: 12px; line-height: 1.35; color: #F4F1EA">{{g.caption}}</figcaption>
+</figure>
+</sc-for>
+</div>
+</section>
+
+<section id="contact" style="position: relative; overflow: hidden; background: #12164A; color: #F4F1EA; padding: 80px 24px 0">
+<div aria-hidden="true" class="a-aurora2" style="position: absolute; left: -15px; top: -220px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(226, 163, 58, 0.22) 0%, rgba(226, 163, 58, 0) 65%)"></div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 24px">
+<div class="rv" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px">
+<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#E2A33A" stroke-width="2.4" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">07 · Contact</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 44px; line-height: 1.02; letter-spacing: -0.025em; font-weight: 800">Travaillons ensemble.</h2>
+<p style="margin: 0; font-size: 16px; color: #B9BCD9">Un projet, une mission ou une simple question : écris-moi.</p>
+</div>
+<div class="rv" style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12)">
+<span style="font-size: 12px; color: #B9BCD9">Email</span>
+<a href="mailto:rolandanasse5@gmail.com" style="font-size: 17px; font-weight: 600; color: #F4F1EA; word-break: break-all">rolandanasse5@gmail.com</a>
+<button type="button" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); background: transparent; color: #F4F1EA; font: 600 13px Inter, system-ui, sans-serif"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>Copier l'adresse</button>
+</div>
+<a href="https://github.com/Guyroro43" class="rv" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 72px; padding: 0 20px; border-radius: 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #F4F1EA">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #B9BCD9">GitHub</span><span style="font-size: 16px; font-weight: 600">github.com/Guyroro43</span></span>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#B9BCD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+</a>
+<a href="https://www.linkedin.com/in/roland-anasse-9259b92b2" class="rv" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 72px; padding: 0 20px; border-radius: 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #F4F1EA">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #B9BCD9">LinkedIn</span><span style="font-size: 16px; font-weight: 600">in/roland-anasse</span></span>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#B9BCD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+</a>
+</div>
+<footer style="position: relative; margin-top: 56px; padding: 22px 0 32px; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; color: #8F93BF">
+<p style="margin: 0">© 2026 Guy Roland Obodjé, dit ANASSE</p>
+<p style="margin: 0">Abidjan, Côte d'Ivoire</p>
+</footer>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":10200}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { this.setState({ t: 1 }); return; }
+    this.setState({ t: 0 });
+    const start = performance.now();
+    const delay = 300;
+    const dur = 3000;
+    const step = (now) => {
+      const p = Math.min(Math.max((now - start - delay) / dur, 0), 1);
+      this.setState({ t: p });
+      if (p < 1) { this._raf = requestAnimationFrame(step); }
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+  componentWillUnmount() { if (this._raf) { cancelAnimationFrame(this._raf); } }
+  renderVals() {
+    const t = (this.state && typeof this.state.t === 'number') ? this.state.t : 1;
+    const ease = 1 - Math.pow(1 - t, 3);
+    const bac = Math.round(330 * ease);
+    const promo = Math.round(25 * ease);
+    const rnd = (n) => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+    const cells = [];
+    for (let i = 0; i < 30; i++) {
+      const k = Math.floor(rnd(i + 40) * 4);
+      cells.push({ k0: k === 0, k1: k === 1, k2: k === 2, k3: k === 3, d: (2.6 + rnd(i + 300) * 2.6).toFixed(2) + 's', dl: (rnd(i + 600) * 6).toFixed(2) + 's' });
+    }
+    const names = ['GoCab Innovation Lab', 'INP-HB', 'Junior Entreprise ESCA', 'Belmor Cosmetic'];
+    const marquee = [];
+    for (let r = 0; r < 2; r++) { names.forEach((label) => marquee.push({ label })); }
+    const projects = [
+      { title: 'Postula', status: 'En cours', statusBg: '#FBEFD9', statusFg: '#7A4E08', text: "Une plateforme qui écrit un CV adapté à chaque offre d'emploi, pour les étudiants et jeunes diplômés en Côte d'Ivoire. On part d'une vraie offre, on reçoit un CV pensé pour elle.", tags: 'Next.js · Supabase · Wave', url: '' },
+      { title: "O'Store", status: 'Refonte en cours', statusBg: '#E9EBFA', statusFg: '#2A3399', text: "Boutique en ligne réservée aux étudiants de l'INP-HB. Première version livrée en HTML/CSS/JS avec panel administrateur et export des ventes en CSV et PDF. Refonte en cours avec Tailwind CSS, shadcn/ui et Supabase.", tags: 'Tailwind CSS · shadcn/ui · Supabase · JavaScript', url: '' },
+      { title: 'BetKick & Tournois', status: 'Livré', statusBg: '#DFF1E8', statusFg: '#17603F', text: 'Plateforme de défis et tournois eFootball en ligne, avec paiements via Wave CI.', tags: 'Supabase · Netlify · Wave CI', url: 'https://betkick.vercel.app' },
+      { title: 'Guides pratiques PDF', status: 'En vente', statusBg: '#F1EEE6', statusFg: '#4B5075', text: "Guides vendus sur Chariow : une formation à l'analyse de données pour débutants et amateurs, et un guide d'initiation à la Bourse (BRVM) pour l'Afrique francophone.", tags: 'Chariow · PDF · Data · BRVM', url: '' },
+      { title: 'Missions JE ESCA', status: '', statusBg: '', statusFg: '', text: 'Études marketing, propositions commerciales et gestion de projets digitaux pour des clients ivoiriens.', tags: 'Marketing · Business · Gestion de projet', url: '' }
+    ];
+    const steps = [
+      { date: 'Avant 2016', title: 'École primaire, Yadio', text: 'Scolarité primaire dans le village de Yadio.', dot: '#12164A' },
+      { date: '2016-2023', title: 'Lycée, Agboville', text: "Scolarité secondaire à Agboville, jusqu'au baccalauréat.", dot: '#12164A' },
+      { date: '2023', title: 'Baccalauréat, major régional', text: "Major régional de l'Agnéby-Tiassa, avec une moyenne de 330/400.", dot: '#12164A' },
+      { date: '2023-2025', title: 'Classes préparatoires, INP-HB', text: "Deux années de classes préparatoires intégrées à l'INP-HB, Côte d'Ivoire.", dot: '#12164A' },
+      { date: 'Depuis 2025', title: 'Cycle ingénieur, ESCA', text: 'Intégration par concours du cycle ingénieur, spécialisation gestion et commerce.', dot: '#E2A33A' }
+    ];
+    const skills = [
+      { title: 'Data & Gestion', items: ['Analyse et traitement de données', 'Power BI', 'Excel avancé et modèles financiers', 'Analyse financière SYSCOHADA', 'Études marketing et business plans'] },
+      { title: 'Tech & Web', items: ['HTML / CSS / JavaScript', 'Next.js', 'Tailwind CSS', 'Supabase & PostgreSQL', 'Déploiement Vercel / Netlify / GitHub', 'Python'] },
+      { title: 'Business', items: ['Entrepreneuriat', 'Propositions commerciales', 'Gestion de projet (Gantt)', 'Formation et pédagogie'] }
+    ];
+    const passions = [
+      { tag: 'eFootball', title: 'Joueur compétitif', text: 'Classé Division 1 sur plusieurs saisons consécutives, et toujours prêt à chambrer après une victoire.', img: 'Capture de match, à ajouter' },
+      { tag: 'Animation', title: 'Animation 2D africaine', text: "Passionné par l'animation 2D et ses représentations africaines.", img: 'Image animation-2d.webp' },
+      { tag: 'Football', title: 'Culture et supporter', text: 'Supporter assidu de football et de la culture ivoirienne et africaine.', img: 'Image football.webp' }
+    ];
+    const gallery = [
+      { caption: 'Les membres de la JE ESCA', rows: 2 },
+      { caption: 'Avec le major bachelier national 2023', rows: 1 },
+      { caption: 'Ma Famille ESCA', rows: 1 },
+      { caption: "Uniforme d'apparat, INP-HB", rows: 2 },
+      { caption: 'Avec mon voisin de classe, ici ça bosse !', rows: 1 },
+      { caption: 'La Team', rows: 1 },
+      { caption: 'Chérif et moi', rows: 2 },
+      { caption: "Le mini groupe, improvisé mais c'est frais !", rows: 1 }
+    ];
+    return { cells, marquee, projects, steps, skills, passions, gallery, bac, promo };
+  }
+}
+</script>
+</body>
+</html>

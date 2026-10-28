@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Admin, connexion</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0B0E2E}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+@keyframes cellGlow{0%,40%,75%,100%{opacity:.08}55%{opacity:.7}}
+.a-cell{animation:cellGlow var(--d,4s) ease-in-out var(--dl,0s) infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; min-height: 900px; background: #0B0E2E; color: #F4F1EA; font-family: Inter, system-ui, sans-serif; display: flex; align-items: center; justify-content: center; padding: 48px 24px; box-sizing: border-box">
+<div aria-hidden="true" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(auto-fill, 96px); grid-auto-rows: 96px; -webkit-mask-image: radial-gradient(circle at center, transparent 22%, #000 70%); mask-image: radial-gradient(circle at center, transparent 22%, #000 70%)">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="12">
+<div style="box-sizing: border-box; border-right: 1px solid rgba(255, 255, 255, 0.04); border-bottom: 1px solid rgba(255, 255, 255, 0.04); display: flex; align-items: center; justify-content: center; color: #E2A33A">
+<svg class="a-cell" viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" style="--d: {{c.d}}; --dl: {{c.dl}}; opacity: 0.08"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+</div>
+</sc-for>
+</div>
+
+<div style="position: relative; width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 28px; padding: 40px; border-radius: 28px; background: #12164A; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.6); box-sizing: border-box">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+<svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#E2A33A" stroke-width="2.6" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 30px; font-weight: 800">ANASSE<span style="color: #E2A33A">.</span> admin</h1>
+<p style="margin: 0; font-size: 14px; color: #B9BCD9">Accès réservé. Connecte-toi pour modifier ton site.</p>
+</div>
+
+<form style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="email" style="font-size: 13px; font-weight: 600; color: #C9CBE3">Email</label>
+<input id="email" type="email" value="rolandanasse5@gmail.com" autocomplete="username" style="min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.18); background: #0B0E2E; color: #F4F1EA; font: 400 15px Inter, system-ui, sans-serif; box-sizing: border-box">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<label for="password" style="font-size: 13px; font-weight: 600; color: #C9CBE3">Mot de passe</label>
+<a href="#" style="font-size: 13px; color: #E2A33A">Mot de passe oublié ?</a>
+</div>
+<input id="password" type="password" value="motdepasse" autocomplete="current-password" style="min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #E2A33A; background: #0B0E2E; color: #F4F1EA; font: 400 15px Inter, system-ui, sans-serif; box-shadow: 0 0 0 3px rgba(226, 163, 58, 0.2); box-sizing: border-box">
+</div>
+<a href="Dashboard.dc.html" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; margin-top: 6px; border-radius: 12px; background: #E2A33A; color: #0B0E2E; font-weight: 600; font-size: 15px">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+Se connecter
+</a>
+</form>
+
+<a href="Main.dc.html" style="align-self: center; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; color: #B9BCD9">
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+Retour au site
+</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const rnd = (n) => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+    const cells = [];
+    for (let i = 0; i < 150; i++) {
+      cells.push({ d: (3 + rnd(i + 900) * 3).toFixed(2) + 's', dl: (rnd(i + 1200) * 7).toFixed(2) + 's' });
+    }
+    return { cells };
+  }
+}
+</script>
+</body>
+</html>

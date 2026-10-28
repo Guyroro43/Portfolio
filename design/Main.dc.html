@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Portfolio ANASSE, accueil ordinateur</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0B0E2E}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+@keyframes aurora1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(90px,50px) scale(1.15)}}
+@keyframes aurora2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,-60px) scale(1.1)}}
+@keyframes cellGlow{0%,40%,75%,100%{opacity:.1}55%{opacity:.95}}
+@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes drawX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes photoIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes cue{0%{transform:translateY(0);opacity:1}70%{transform:translateY(10px);opacity:0}100%{transform:translateY(10px);opacity:0}}
+.a-aurora1{animation:aurora1 19s ease-in-out infinite}
+.a-aurora2{animation:aurora2 23s ease-in-out infinite}
+.a-cell{animation:cellGlow var(--d,4s) ease-in-out var(--dl,0s) infinite}
+.a-up{animation:riseIn .6s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}
+.a-draw{transform-origin:left center;animation:drawX .8s cubic-bezier(.6,.05,.2,1) .5s both}
+.a-photo{animation:photoIn .9s ease-out .2s both}
+.a-marquee{animation:marquee 30s linear infinite}
+.mq:hover .a-marquee{animation-play-state:paused}
+.a-cue{animation:cue 1.8s ease-in-out infinite}
+.lift{transition:transform .3s ease,box-shadow .3s ease}
+.lift:hover{transform:translateY(-4px);box-shadow:0 24px 48px -24px rgba(11,14,46,.5)}
+.lift .arr{transition:transform .2s ease}
+.lift:hover .arr{transform:translateX(4px)}
+.lift .zoom{transition:transform .5s ease}
+.lift:hover .zoom{transform:scale(1.05)}
+.btn{transition:transform .2s ease,filter .2s ease}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+@supports (animation-timeline: view()){
+.rv{animation:riseIn linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
+.rv2{animation-range:entry 8% entry 53%}
+.rv3{animation-range:entry 16% entry 61%}
+.tl{transform-origin:top center;animation:growY linear both;animation-timeline:view();animation-range:entry 30% exit 70%}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div style="background: #0B0E2E; color: #F4F1EA; font-family: Inter, system-ui, sans-serif">
+
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(11, 14, 46, 0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255, 255, 255, 0.08)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; color: #F4F1EA">
+<svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="#E2A33A" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<span>ANASSE<span style="color: #E2A33A">.</span></span>
+</a>
+<nav aria-label="Navigation principale" style="display: flex; gap: 2px; flex-wrap: wrap">
+<a href="#apropos" style="padding: 12px 14px; border-radius: 999px; font-size: 14px; color: #C9CBE3">À propos</a>
+<a href="#projets" style="padding: 12px 14px; border-radius: 999px; font-size: 14px; color: #C9CBE3">Projets</a>
+<a href="#parcours" style="padding: 12px 14px; border-radius: 999px; font-size: 14px; color: #C9CBE3">Parcours</a>
+<a href="#competences" style="padding: 12px 14px; border-radius: 999px; font-size: 14px; color: #C9CBE3">Compétences</a>
+<a href="#horscadre" style="padding: 12px 14px; border-radius: 999px; font-size: 14px; color: #C9CBE3">Hors du cadre</a>
+<a href="#galerie" style="padding: 12px 14px; border-radius: 999px; font-size: 14px; color: #C9CBE3">Galerie</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<div role="group" aria-label="Langue du site" style="display: flex; padding: 4px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.16)">
+<button type="button" aria-pressed="true" style="border: 0; border-radius: 999px; padding: 9px 14px; background: #E2A33A; color: #0B0E2E; font: 600 13px Inter, system-ui, sans-serif; cursor: pointer">FR</button>
+<button type="button" aria-pressed="false" style="border: 0; border-radius: 999px; padding: 9px 14px; background: transparent; color: #C9CBE3; font: 600 13px Inter, system-ui, sans-serif; cursor: pointer">EN</button>
+</div>
+<a href="#contact" class="btn" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(226, 163, 58, 0.6); color: #E2A33A; font-weight: 600; font-size: 14px; box-sizing: border-box">Me contacter</a>
+</div>
+</div>
+</header>
+
+<section id="top" style="position: relative; overflow: hidden; background: #0B0E2E; min-height: 780px">
+<div aria-hidden="true" class="a-aurora1" style="position: absolute; left: -180px; top: -160px; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(58, 67, 168, 0.55) 0%, rgba(58, 67, 168, 0) 65%)"></div>
+<div aria-hidden="true" class="a-aurora2" style="position: absolute; right: -140px; bottom: -260px; width: 660px; height: 660px; border-radius: 50%; background: radial-gradient(circle, rgba(226, 163, 58, 0.26) 0%, rgba(226, 163, 58, 0) 65%)"></div>
+<div aria-hidden="true" style="position: absolute; top: 0; right: 0; width: 1232px; height: 792px; display: grid; grid-template-columns: repeat(14, 88px); -webkit-mask-image: linear-gradient(to left, #000 30%, transparent 82%); mask-image: linear-gradient(to left, #000 30%, transparent 82%)">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="14">
+<div style="width: 88px; height: 88px; box-sizing: border-box; border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; color: #E2A33A">
+<div class="a-cell" style="--d: {{c.d}}; --dl: {{c.dl}}; width: 34px; height: 34px; opacity: 0.1">
+<sc-if value="{{c.k0}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg></sc-if>
+<sc-if value="{{c.k1}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><polygon points="24,4 28.5,18 42,14 32,24 42,34 28.5,30 24,44 19.5,30 6,34 16,24 6,14 19.5,18"></polygon></svg></sc-if>
+<sc-if value="{{c.k2}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="7" y="7" width="34" height="34"></rect><rect x="16" y="16" width="16" height="16"></rect><path d="M7 7 L16 16 M41 7 L32 16 M7 41 L16 32 M41 41 L32 32"></path></svg></sc-if>
+<sc-if value="{{c.k3}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 L32 12 L16 20 L32 28 L16 36 L32 44"></path></svg></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 32px 136px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p class="a-up" style="margin: 0; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); font-size: 13px; color: #C9CBE3">
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#E2A33A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+Abidjan, Côte d'Ivoire
+</p>
+<h1 class="a-up" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 78px; line-height: 0.98; letter-spacing: -0.025em; color: #F4F1EA; text-wrap: balance">Guy Roland Obodjé</h1>
+<div class="a-up d1" style="display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 30px; font-weight: 600; color: #C9CBE3">dit <span style="color: #E2A33A; font-weight: 800; letter-spacing: 0.02em">ANASSE</span></p>
+<span class="a-draw" aria-hidden="true" style="display: block; width: 132px; height: 4px; border-radius: 4px; background: #E2A33A"></span>
+</div>
+<p class="a-up d2" style="margin: 0; font-size: 22px; font-weight: 600; color: #F4F1EA">Élève ingénieur et bâtisseur de projets</p>
+<p class="a-up d2" style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.65; color: #B9BCD9; text-wrap: pretty">Je conçois et développe des produits web de bout en bout, de la plateforme EdTech ANTA aux missions de la Junior Entreprise ESCA. Élève ingénieur en deuxième année du cycle ingénieur à l'ESCA (INP-HB, Côte d'Ivoire), spécialisation gestion et commerce.</p>
+<div class="a-up d3" style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#projets" class="btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-weight: 600; font-size: 15px; box-sizing: border-box">Voir mes projets
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+<a href="#contact" class="btn" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.24); color: #F4F1EA; font-weight: 600; font-size: 15px; box-sizing: border-box">Me contacter</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); gap: 12px; margin-top: 16px">
+<div class="a-up d3" style="padding: 18px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 32px; color: #F4F1EA; font-variant-numeric: tabular-nums">{{bac}}/400</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.45; color: #B9BCD9">Bac 2023, major régional de l'Agnéby-Tiassa</p>
+</div>
+<div class="a-up d4" style="padding: 18px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 32px; color: #F4F1EA; font-variant-numeric: tabular-nums">{{promo}}</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.45; color: #B9BCD9">camarades de promo formés à Excel</p>
+</div>
+<div class="a-up d5" style="padding: 18px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 32px; color: #F4F1EA">D1</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.45; color: #B9BCD9">en eFootball, plusieurs saisons de suite</p>
+</div>
+</div>
+</div>
+
+<div class="a-photo" style="flex: 0 1 420px; min-width: 0; position: relative">
+<svg viewBox="0 0 48 48" width="180" height="180" fill="none" stroke="#E2A33A" stroke-width="1.2" aria-hidden="true" style="position: absolute; top: -56px; right: -56px; opacity: 0.55"><circle cx="24" cy="24" r="22"></circle><circle cx="24" cy="24" r="15"></circle><circle cx="24" cy="24" r="8"></circle></svg>
+<figure style="margin: 0; position: relative; aspect-ratio: 4 / 5; border-radius: 28px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); background: #141A4A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #8F93BF; text-align: center; padding: 24px; box-sizing: border-box">
+<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<figcaption style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 16px; font-weight: 600; color: #C9CBE3">Ta photo en costume</span>
+<span style="font-size: 13px">La même que sur ton site actuel, à déposer ici</span>
+</figcaption>
+</figure>
+</div>
+</div>
+
+<a href="#apropos" aria-label="Descendre vers la section À propos" style="position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: #8F93BF; font-size: 12px">
+<span style="width: 24px; height: 38px; border-radius: 14px; border: 1.5px solid rgba(255, 255, 255, 0.3); display: flex; justify-content: center; padding-top: 7px; box-sizing: border-box"><span class="a-cue" style="display: block; width: 4px; height: 8px; border-radius: 2px; background: #E2A33A"></span></span>
+Défiler
+</a>
+</section>
+
+<div class="mq" style="background: #E2A33A; color: #0B0E2E; overflow: hidden">
+<div class="a-marquee" style="display: flex; width: max-content">
+<sc-for list="{{marquee}}" as="m" hint-placeholder-count="8">
+<div style="display: flex; align-items: center; gap: 28px; padding: 20px 14px">
+<span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px; white-space: nowrap">{{m.label}}</span>
+<svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="9"></circle></svg>
+</div>
+</sc-for>
+</div>
+</div>
+
+<section id="apropos" style="background: #F6F3EC; color: #151842">
+<div style="max-width: 1200px; margin: 0 auto; padding: 120px 32px 64px; display: flex; flex-direction: column; gap: 48px">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">01 · À propos</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; font-weight: 700">Qui je suis</h2>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M24 24 C 18 20 8 18 8 11 C 8 6 15 6 15 11 C 15 14 12 14 12 12"></path><path d="M24 24 C 30 20 40 18 40 11 C 40 6 33 6 33 11 C 33 14 36 14 36 12"></path><path d="M24 24 C 18 28 8 30 8 37 C 8 42 15 42 15 37 C 15 34 12 34 12 36"></path><path d="M24 24 C 30 28 40 30 40 37 C 40 42 33 42 33 37 C 33 34 36 34 36 36"></path></svg>
+<span style="font-size: 13px; line-height: 1.4; color: #4B5075; max-width: 190px">Dwennimmen, l'humilité et la force</span>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div class="rv" style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px; font-size: 18px; line-height: 1.7; color: #2B2F57; text-wrap: pretty">
+<p style="margin: 0">Mon parcours commence à Yadio, où j'ai suivi ma scolarité primaire, avant le lycée à Agboville. J'y ai obtenu mon baccalauréat en 2023 en tant que major régional de l'Agnéby-Tiassa, avec une moyenne de 330/400. Deux années de classes préparatoires à l'INP-HB (2023-2025) m'ont ensuite mené, par concours, au cycle ingénieur en 2025.</p>
+<p style="margin: 0">Avant l'ingénierie, j'ai fait mes armes dans le commerce, comme agent commercial chez Belmor Cosmetic (2021-2022). Aujourd'hui, je suis Adjoint Chargé aux Traitements et Analyse de Données à la Junior Entreprise ESCA. Chez GoCab Innovation Lab, je m'occupe du produit GoBuy : suivi financier, rapports de la semaine et coordination sur le terrain.</p>
+</div>
+<aside class="rv rv2" aria-label="En bref" style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; box-sizing: border-box">
+<h3 style="margin: 0 0 10px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 20px; font-weight: 700">En bref</h3>
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #EEE9DD">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600; color: #6A6E8E">Formation</span><span style="font-size: 15px; line-height: 1.5">Cycle ingénieur, ESCA / INP-HB, gestion et commerce</span></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #EEE9DD">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600; color: #6A6E8E">Rôle à la JE</span><span style="font-size: 15px; line-height: 1.5">Adjoint Chargé aux Traitements et Analyse de Données, JE ESCA</span></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #EEE9DD">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600; color: #6A6E8E">Chez GoCab</span><span style="font-size: 15px; line-height: 1.5">Produit GoBuy, GoCab Innovation Lab</span></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #EEE9DD">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600; color: #6A6E8E">Bac 2023</span><span style="font-size: 15px; line-height: 1.5">Major régional de l'Agnéby-Tiassa (330/400)</span></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #EEE9DD">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600; color: #6A6E8E">Avant</span><span style="font-size: 15px; line-height: 1.5">Agent commercial, Belmor Cosmetic (2021-2022)</span></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0 0; border-top: 1px solid #EEE9DD">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600; color: #6A6E8E">Localisation</span><span style="font-size: 15px; line-height: 1.5">Abidjan, Côte d'Ivoire</span></div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<section id="projets" style="background: #F6F3EC; color: #151842">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px 120px; display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">02 · Projets</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; font-weight: 700">Des produits construits de bout en bout</h2>
+<p style="margin: 0; font-size: 18px; color: #4B5075">Conception, technique et mise sur le marché.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M24 4 V44"></path><path d="M24 10 L15 16 M24 10 L33 16 M24 18 L12 25 M24 18 L36 25 M24 26 L12 33 M24 26 L36 33 M24 34 L15 40 M24 34 L33 40"></path></svg>
+<span style="font-size: 13px; line-height: 1.4; color: #4B5075; max-width: 190px">Aya, l'endurance et l'ingéniosité</span>
+</div>
+</div>
+
+<article class="lift rv" style="background: #12164A; color: #F4F1EA; border-radius: 28px; overflow: hidden; display: flex; flex-wrap: wrap">
+<div style="flex: 1 1 440px; min-width: 0; padding: 44px; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-size: 12px; font-weight: 600">Projet phare</span>
+<span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); color: #C9CBE3; font-size: 12px; font-weight: 600">En cours</span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 58px; font-weight: 800; letter-spacing: -0.02em; line-height: 1">ANTA</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #B9BCD9; text-wrap: pretty">Plateforme EdTech d'apprentissage de l'anglais pensée pour les jeunes africains francophones. Modèle freemium, paiement Mobile Money et gamification par système de badges.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 13px; color: #C9CBE3">Next.js</span>
+<span style="padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 13px; color: #C9CBE3">Tailwind CSS</span>
+<span style="padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 13px; color: #C9CBE3">Supabase</span>
+<span style="padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 13px; color: #C9CBE3">PostgreSQL</span>
+<span style="padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.07); font-size: 13px; color: #C9CBE3">Vercel</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+<a href="https://antaelearn.vercel.app" class="btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #E2A33A; color: #0B0E2E; font-weight: 600; font-size: 15px; box-sizing: border-box">Voir le site
+<svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+<a href="https://github.com/Guyroro43/ANTANEW" class="btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.24); color: #F4F1EA; font-weight: 600; font-size: 15px; box-sizing: border-box">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+Code source</a>
+</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0; padding: 44px 44px 0; display: flex; align-items: flex-end; box-sizing: border-box">
+<div style="width: 100%; border-radius: 16px 16px 0 0; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); border-bottom: 0">
+<div style="display: flex; gap: 6px; padding: 12px 14px; background: #1C2266; border-bottom: 1px solid rgba(255, 255, 255, 0.08)"><span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.25)"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.25)"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.25)"></span></div>
+<div style="aspect-ratio: 16 / 10; overflow: hidden; background: #1A1F5C">
+<div class="zoom" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #8F93BF; font-size: 14px">
+<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<span>Capture d'ANTA, à ajouter depuis l'admin</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 20px">
+
+<article class="lift rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #EEF0FB; color: #2A3399; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span>
+<span style="padding: 6px 12px; border-radius: 999px; background: #FBEFD9; color: #7A4E08; font-size: 12px; font-weight: 600">En cours</span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Postula</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075; flex-grow: 1">Une plateforme qui écrit un CV adapté à chaque offre d'emploi, pour les étudiants et jeunes diplômés en Côte d'Ivoire. On part d'une vraie offre, on reçoit un CV pensé pour elle.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Next.js</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Supabase</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Wave</span>
+</div>
+</article>
+
+<article class="lift rv rv2" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #EEF0FB; color: #2A3399; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span>
+<span style="padding: 6px 12px; border-radius: 999px; background: #E9EBFA; color: #2A3399; font-size: 12px; font-weight: 600">Refonte en cours</span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">O'Store</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075; flex-grow: 1">Boutique en ligne réservée aux étudiants de l'INP-HB. Première version livrée en HTML/CSS/JS avec panel administrateur et export des ventes en CSV et PDF. Refonte en cours avec Tailwind CSS, shadcn/ui et Supabase.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Tailwind CSS</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">shadcn/ui</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Supabase</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">JavaScript</span>
+</div>
+</article>
+
+<article class="lift rv rv3" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #EEF0FB; color: #2A3399; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg></span>
+<span style="padding: 6px 12px; border-radius: 999px; background: #DFF1E8; color: #17603F; font-size: 12px; font-weight: 600">Livré</span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">BetKick &amp; Tournois</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075; flex-grow: 1">Plateforme de défis et tournois eFootball en ligne, avec paiements via Wave CI.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Supabase</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Netlify</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Wave CI</span>
+</div>
+<a href="https://betkick.vercel.app" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; font-size: 14px; color: #2A3399">Voir le site
+<svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+</article>
+
+<article class="lift rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #EEF0FB; color: #2A3399; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>
+<span style="padding: 6px 12px; border-radius: 999px; background: #F1EEE6; color: #4B5075; font-size: 12px; font-weight: 600">En vente</span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Guides pratiques PDF</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075; flex-grow: 1">Guides vendus sur Chariow : une formation à l'analyse de données pour débutants et amateurs, et un guide d'initiation à la Bourse (BRVM) pour l'Afrique francophone.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Chariow</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">PDF</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Data</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">BRVM</span>
+</div>
+</article>
+
+<article class="lift rv rv2" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #EEF0FB; color: #2A3399; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></span>
+</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Missions JE ESCA</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075; flex-grow: 1">Études marketing, propositions commerciales et gestion de projets digitaux pour des clients ivoiriens.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Marketing</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Business</span>
+<span style="padding: 5px 10px; border-radius: 8px; background: #F1EEE6; font-size: 12px; color: #4B5075">Gestion de projet</span>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="parcours" style="background: #12164A; color: #F4F1EA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 64px">
+<div class="rv" style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 18px; position: sticky; top: 110px; align-self: flex-start">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">03 · Parcours</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 50px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 700; text-wrap: balance">De l'école de Yadio au cycle ingénieur</h2>
+<div style="display: flex; align-items: center; gap: 14px; color: #E2A33A; margin-top: 8px">
+<svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4 L32 12 L16 20 L32 28 L16 36 L32 44"></path></svg>
+<span style="font-size: 13px; line-height: 1.4; color: #B9BCD9; max-width: 200px">Nkyinkyim, l'initiative et la capacité d'adaptation</span>
+</div>
+<p style="margin: 12px 0 0; padding: 18px 20px; border-radius: 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); font-size: 15px; line-height: 1.55; color: #C9CBE3"><span style="color: #E2A33A; font-weight: 600">En parallèle :</span> agent commercial chez Belmor Cosmetic (2021-2022).</p>
+</div>
+
+<ol style="flex: 1 1 560px; min-width: 0; list-style: none; margin: 0; padding: 0 0 0 40px; position: relative; display: flex; flex-direction: column; gap: 44px">
+<span aria-hidden="true" style="position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: rgba(255, 255, 255, 0.12)"></span>
+<span aria-hidden="true" class="tl" style="position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: #E2A33A"></span>
+<li class="rv" style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span aria-hidden="true" style="position: absolute; left: -40px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: #12164A; border: 2px solid #E2A33A; box-sizing: border-box"></span>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">Avant 2016</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">École primaire, Yadio</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9BCD9">Scolarité primaire dans le village de Yadio.</p>
+</li>
+<li class="rv" style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span aria-hidden="true" style="position: absolute; left: -40px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: #12164A; border: 2px solid #E2A33A; box-sizing: border-box"></span>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">2016-2023</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Lycée, Agboville</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9BCD9">Scolarité secondaire à Agboville, jusqu'au baccalauréat.</p>
+</li>
+<li class="rv" style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span aria-hidden="true" style="position: absolute; left: -40px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: #12164A; border: 2px solid #E2A33A; box-sizing: border-box"></span>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">2023</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Baccalauréat, major régional</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9BCD9">Major régional de l'Agnéby-Tiassa, avec une moyenne de 330/400.</p>
+</li>
+<li class="rv" style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span aria-hidden="true" style="position: absolute; left: -40px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: #12164A; border: 2px solid #E2A33A; box-sizing: border-box"></span>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">2023-2025</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Classes préparatoires, INP-HB</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9BCD9">Deux années de classes préparatoires intégrées à l'INP-HB, Côte d'Ivoire.</p>
+</li>
+<li class="rv" style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span aria-hidden="true" style="position: absolute; left: -40px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: #E2A33A; border: 2px solid #E2A33A; box-sizing: border-box; box-shadow: 0 0 0 6px rgba(226, 163, 58, 0.2)"></span>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">Depuis 2025</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700">Cycle ingénieur, ESCA</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9BCD9">Intégration par concours du cycle ingénieur, spécialisation gestion et commerce.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<section id="competences" style="background: #F6F3EC; color: #151842">
+<div style="max-width: 1200px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">04 · Compétences</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; font-weight: 700">Ce que je sais faire</h2>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><circle cx="15" cy="15" r="7.5"></circle><circle cx="33" cy="15" r="7.5"></circle><circle cx="15" cy="33" r="7.5"></circle><circle cx="33" cy="33" r="7.5"></circle><rect x="20" y="20" width="8" height="8" rx="1"></rect></svg>
+<span style="font-size: 13px; line-height: 1.4; color: #4B5075; max-width: 190px">Mate Masie, la sagesse et la connaissance</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px">
+<article class="lift rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></span>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Data &amp; Gestion</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Analyse et traitement de données</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Power BI</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Excel avancé et modèles financiers</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Analyse financière SYSCOHADA</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Études marketing et business plans</span>
+</div>
+</article>
+<article class="lift rv rv2" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #EEF0FB; color: #2A3399; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></span>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Tech &amp; Web</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">HTML / CSS / JavaScript</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Next.js</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Tailwind CSS</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Supabase &amp; PostgreSQL</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Déploiement Vercel / Netlify / GitHub</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Python</span>
+</div>
+</article>
+<article class="lift rv rv3" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: #F3EEE3; color: #8A5A0C; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg></span>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Business</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Entrepreneuriat</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Propositions commerciales</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Gestion de projet (Gantt)</span>
+<span style="padding: 8px 12px; border-radius: 10px; background: #F1EEE6; font-size: 14px; color: #2B2F57">Formation et pédagogie</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="horscadre" style="background: #EFEAE0; color: #151842">
+<div style="max-width: 1200px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #8A5A0C; letter-spacing: 0.04em">05 · Hors du cadre</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; font-weight: 700">Quand je ne travaille pas</h2>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; color: #8A5A0C">
+<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 42 C 12 34 6 26 6 18 C 6 11 11 7 16 7 C 21 7 24 11 24 15 C 24 11 27 7 32 7 C 37 7 42 11 42 18 C 42 26 36 34 24 42 Z"></path><path d="M24 15 C 22 21 16 21 16 17 C 16 13.5 20.5 13.5 20.5 16.5"></path><path d="M24 15 C 26 21 32 21 32 17 C 32 13.5 27.5 13.5 27.5 16.5"></path></svg>
+<span style="font-size: 13px; line-height: 1.4; color: #4B5075; max-width: 190px">Sankofa, revenir à ses racines</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px">
+<article class="lift rv" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #12164A">
+<div class="zoom" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #8F93BF; font-size: 13px">
+<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<span>Capture de match, à ajouter</span>
+</div>
+</div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #8A5A0C"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>eFootball</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Joueur compétitif</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075">Classé Division 1 sur plusieurs saisons consécutives, et toujours prêt à chambrer après une victoire.</p>
+</div>
+</article>
+<article class="lift rv rv2" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #12164A">
+<div class="zoom" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #8F93BF; font-size: 13px">
+<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<span>Image animation-2d.webp de ton site</span>
+</div>
+</div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #8A5A0C"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 3v18"></path><path d="M3 7.5h4"></path><path d="M3 12h18"></path><path d="M3 16.5h4"></path><path d="M17 3v18"></path><path d="M17 7.5h4"></path><path d="M17 16.5h4"></path></svg>Animation</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Animation 2D africaine</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075">Passionné par l'animation 2D et ses représentations africaines.</p>
+</div>
+</article>
+<article class="lift rv rv3" style="background: #FFFFFF; border: 1px solid #E4DED0; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #12164A">
+<div class="zoom" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #8F93BF; font-size: 13px">
+<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+<span>Image football.webp de ton site</span>
+</div>
+</div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #8A5A0C"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>Football</p>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">Culture et supporter</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5075">Supporter assidu de football et de la culture ivoirienne et africaine.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="galerie" style="background: #0B0E2E; color: #F4F1EA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">06 · Galerie</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; font-weight: 700">Quelques instantanés</h2>
+<p style="margin: 0; font-size: 18px; color: #B9BCD9">En dehors des lignes de code : promo, potes, uniforme d'apparat.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; color: #E2A33A">
+<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><rect x="8" y="5" width="18" height="24" rx="9"></rect><rect x="22" y="19" width="18" height="24" rx="9"></rect></svg>
+<span style="font-size: 13px; line-height: 1.4; color: #B9BCD9; max-width: 190px">Nkonsonkonson, l'unité et les liens humains</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); grid-auto-rows: 180px; grid-auto-flow: dense; gap: 16px">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="8">
+<figure class="lift rv" style="margin: 0; position: relative; border-radius: 18px; overflow: hidden; background: #141A4A; border: 1px solid rgba(255, 255, 255, 0.08); grid-row: span {{g.rows}}">
+<div class="zoom" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: center; color: #5D6299">
+<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+</div>
+<figcaption style="position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 16px 14px; background: linear-gradient(to top, rgba(11, 14, 46, 0.94), rgba(11, 14, 46, 0)); font-size: 14px; line-height: 1.4; color: #F4F1EA">{{g.caption}}</figcaption>
+</figure>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="contact" style="position: relative; overflow: hidden; background: #12164A; color: #F4F1EA">
+<div aria-hidden="true" class="a-aurora2" style="position: absolute; left: 50%; top: -280px; width: 720px; height: 720px; margin-left: -360px; border-radius: 50%; background: radial-gradient(circle, rgba(226, 163, 58, 0.22) 0%, rgba(226, 163, 58, 0) 65%)"></div>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 128px 32px 72px; display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px">
+<svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="#E2A33A" stroke-width="2.4" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="24" r="12.5"></circle><circle cx="24" cy="24" r="5"></circle></svg>
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #E2A33A; letter-spacing: 0.04em">07 · Contact</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 76px; line-height: 1; letter-spacing: -0.025em; font-weight: 800">Travaillons ensemble.</h2>
+<p style="margin: 0; font-size: 18px; color: #B9BCD9; max-width: 520px">Un projet, une mission ou une simple question : écris-moi.</p>
+<p style="margin: 0; font-size: 12px; color: #8F93BF">Adinkrahene, la grandeur et le leadership</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
+<div class="lift rv" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border-radius: 22px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12)">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: rgba(226, 163, 58, 0.14); color: #E2A33A; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span>
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); background: transparent; color: #F4F1EA; font: 600 13px Inter, system-ui, sans-serif; cursor: pointer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>Copier</button>
+</div>
+<span style="font-size: 13px; color: #B9BCD9">Email</span>
+<a href="mailto:rolandanasse5@gmail.com" style="font-size: 18px; font-weight: 600; color: #F4F1EA; word-break: break-all">rolandanasse5@gmail.com</a>
+</div>
+<a href="https://github.com/Guyroro43" class="lift rv rv2" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border-radius: 22px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #F4F1EA">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: rgba(226, 163, 58, 0.14); color: #E2A33A; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></span>
+<svg class="arr" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#B9BCD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+</span>
+<span style="font-size: 13px; color: #B9BCD9">GitHub</span>
+<span style="font-size: 18px; font-weight: 600">github.com/Guyroro43</span>
+</a>
+<a href="https://www.linkedin.com/in/roland-anasse-9259b92b2" class="lift rv rv3" style="display: flex; flex-direction: column; gap: 14px; padding: 26px; border-radius: 22px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #F4F1EA">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="width: 46px; height: 46px; border-radius: 12px; background: rgba(226, 163, 58, 0.14); color: #E2A33A; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg></span>
+<svg class="arr" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#B9BCD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+</span>
+<span style="font-size: 13px; color: #B9BCD9">LinkedIn</span>
+<span style="font-size: 18px; font-weight: 600">in/roland-anasse</span>
+</a>
+</div>
+</div>
+<footer style="position: relative; max-width: 1200px; margin: 0 auto; padding: 28px 32px 44px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 14px; color: #8F93BF; box-sizing: border-box">
+<p style="margin: 0">© 2026 Guy Roland Obodjé, dit ANASSE</p>
+<p style="margin: 0">Abidjan, Côte d'Ivoire</p>
+</footer>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7000}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { this.setState({ t: 1 }); return; }
+    this.setState({ t: 0 });
+    const start = performance.now();
+    const delay = 300;
+    const dur = 3000;
+    const step = (now) => {
+      const p = Math.min(Math.max((now - start - delay) / dur, 0), 1);
+      this.setState({ t: p });
+      if (p < 1) { this._raf = requestAnimationFrame(step); }
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+  componentWillUnmount() { if (this._raf) { cancelAnimationFrame(this._raf); } }
+  renderVals() {
+    const t = (this.state && typeof this.state.t === 'number') ? this.state.t : 1;
+    const ease = 1 - Math.pow(1 - t, 3);
+    const bac = Math.round(330 * ease);
+    const promo = Math.round(25 * ease);
+    const rnd = (n) => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+    const cells = [];
+    for (let i = 0; i < 126; i++) {
+      const k = Math.floor(rnd(i) * 4);
+      cells.push({ k0: k === 0, k1: k === 1, k2: k === 2, k3: k === 3, d: (2.6 + rnd(i + 300) * 2.6).toFixed(2) + 's', dl: (rnd(i + 600) * 6).toFixed(2) + 's' });
+    }
+    const names = ['GoCab Innovation Lab', 'INP-HB', 'Junior Entreprise ESCA', 'Belmor Cosmetic'];
+    const marquee = [];
+    for (let r = 0; r < 4; r++) { names.forEach((label) => marquee.push({ label })); }
+    const gallery = [
+      { caption: 'Les membres de la JE ESCA', rows: 2 },
+      { caption: 'Avec le major bachelier national 2023', rows: 1 },
+      { caption: 'Ma Famille ESCA', rows: 2 },
+      { caption: "Uniforme d'apparat, INP-HB", rows: 2 },
+      { caption: 'Avec mon voisin de classe, ici ça bosse !', rows: 1 },
+      { caption: 'La Team', rows: 1 },
+      { caption: 'Chérif et moi', rows: 2 },
+      { caption: "Le mini groupe, improvisé mais c'est frais !", rows: 1 }
+    ];
+    return { cells, marquee, gallery, bac, promo };
+  }
+}
+</script>
+</body>
+</html>
