@@ -36,6 +36,7 @@ export function Hero({ section, media, lang, nextSectionId }: Props) {
 
           <h1
             id={`${section.id}-titre`}
+            translate="no"
             className="a-up font-heading text-[46px] leading-none font-extrabold tracking-[-0.025em] text-balance [--delay:0.08s] md:text-[64px] md:[--delay:0s] lg:text-[78px] lg:leading-[0.98]"
           >
             {data.name}
@@ -44,7 +45,9 @@ export function Hero({ section, media, lang, nextSectionId }: Props) {
           <div className="a-up flex flex-col gap-3 [--delay:0.1s] md:gap-4">
             <p className="font-heading text-2xl font-semibold text-on-dark-nav md:text-[30px]">
               {t(data.nickname.prefix, lang)}{' '}
-              <span className="font-extrabold tracking-[0.02em] text-accent">{data.nickname.name}</span>
+              <span translate="no" className="font-extrabold tracking-[0.02em] text-accent">
+                {data.nickname.name}
+              </span>
             </p>
             <span aria-hidden="true" className="a-draw block h-1 w-24 rounded bg-accent md:w-[132px]" />
           </div>

@@ -67,7 +67,7 @@ export function GallerySection({ section, media, lang, ...placement }: Props) {
                   type="button"
                   data-photo-index={index}
                   aria-label={caption ? `${ui('openPhoto', lang)}, ${caption}` : ui('openPhoto', lang)}
-                  className="absolute inset-0 z-10 cursor-zoom-in rounded-[inherit]"
+                  className="absolute inset-0 z-10 cursor-zoom-in rounded-[inherit] focus-visible:outline-offset-[-3px]"
                 />
               </figure>
             )

@@ -62,7 +62,7 @@ export default function Lightbox({ photos, index, onIndexChange, onClose, labels
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-50 flex flex-col bg-bg-dark/95 text-on-dark"
+        className="fixed inset-0 z-50 flex flex-col overscroll-contain bg-bg-dark/95 text-on-dark"
       >
         <div className="flex items-center justify-between gap-4 px-4 py-3 md:px-6">
           <p className="text-sm text-on-dark-muted tabular-nums" aria-live="polite">

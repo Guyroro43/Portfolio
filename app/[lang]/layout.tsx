@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import '../globals.css'
 import { getContent } from '@/lib/content/get-content'
 import { fontClassNames } from '@/lib/fonts'
@@ -33,6 +33,11 @@ export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Prom
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
     },
   }
+}
+
+export async function generateViewport(): Promise<Viewport> {
+  const { theme } = await getContent()
+  return { themeColor: theme.colors.bgDark, colorScheme: 'dark' }
 }
 
 export default async function SiteLayout({ children, params }: LayoutProps<'/[lang]'>) {

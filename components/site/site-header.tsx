@@ -25,7 +25,7 @@ export function SiteHeader({ content, lang }: Props) {
           className="flex min-h-11 items-center gap-2 font-heading text-xl font-extrabold tracking-[0.01em] md:gap-2.5 md:text-[22px]"
         >
           <Adinkra symbol="adinkrahene" strokeWidth={3} className="size-[22px] text-accent md:size-[26px]" />
-          <span>
+          <span translate="no">
             {brand}
             <span className="text-accent">.</span>
           </span>
