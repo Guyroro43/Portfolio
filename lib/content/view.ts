@@ -12,9 +12,9 @@ export function sectionNumbers(sections: Section[]): Map<string, string> {
   return numbers
 }
 
-/** Adresse d'une photo. Étapes 2 et 3 : dossier public/. À l'étape 4 : bucket Supabase. */
+/** Adresse publique d'une photo dans le bucket media de Supabase (autorisée dans next.config.ts). */
 export function mediaSrc(entry: MediaEntry): string {
-  return `/${entry.path}`
+  return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media/${entry.path}`
 }
 
 /** Assemble des classes CSS en ignorant les valeurs vides. */

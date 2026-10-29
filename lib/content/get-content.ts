@@ -1,16 +1,22 @@
 import { cacheLife, cacheTag } from 'next/cache'
-import media from '@/content/media.json'
-import seed from '@/content/seed.json'
+import { createPublicClient } from '@/lib/supabase/public'
 import { publishedSchema, type Published } from './schema'
 
 /**
- * Contenu publié du site. Lu une fois au moment de générer les pages, puis gardé en cache
- * jusqu'à la prochaine publication (updateTag('site-content')).
- * Étapes 2 et 3 : lu depuis content/. À l'étape 4, lu depuis Supabase.
+ * Contenu publié du site, lu dans Supabase une fois au moment de générer les pages, puis gardé
+ * en cache jusqu'à la prochaine publication (updateTag('site-content')).
+ * Si Supabase ne répond pas lors d'un rafraîchissement, l'ancienne page reste servie.
  */
 export async function getContent(): Promise<Published> {
   'use cache'
   cacheTag('site-content')
   cacheLife('max')
-  return publishedSchema.parse({ ...seed, media })
+
+  const { data, error } = await createPublicClient()
+    .from('site_content')
+    .select('content')
+    .eq('key', 'published')
+    .single()
+  if (error) throw new Error(`Lecture de la version publiée impossible : ${error.message}`)
+  return publishedSchema.parse(data.content)
 }
