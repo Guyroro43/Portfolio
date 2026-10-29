@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* Les classes de l'admin n'alourdissent pas la feuille du site public. */
+@source not './admin';
+@source not '../components/admin';
+
 /*
  * Couleurs et polices du thème.
  * Les 6 couleurs --c-* et les 2 polices --f-* viennent du thème publié (balise <style> du layout).

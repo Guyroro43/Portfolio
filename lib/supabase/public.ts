@@ -1,15 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
+import { supabaseEnv } from './env'
 
 /**
  * Client Supabase sans session, avec la clé publishable.
- * Il ne voit que ce que les règles RLS ouvrent aux visiteurs : la version publiée et les photos.
+ * Il ne voit que ce que les règles RLS ouvrent aux visiteurs : la version publiée.
  */
 export function createPublicClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
-  if (!url || !key) {
-    throw new Error('NEXT_PUBLIC_SUPABASE_URL ou NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY manque (voir .env.example)')
-  }
+  const { url, key } = supabaseEnv()
   return createClient(url, key, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
   })

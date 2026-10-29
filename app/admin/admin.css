@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+/*
+ * Couleurs de l'admin, reprises des maquettes (design/Login, Dashboard...).
+ * Elles sont fixes : le thème du site, modifiable, ne change jamais l'admin.
+ */
+@theme inline {
+  --color-night: #0b0e2e;
+  --color-night-card: #12164a;
+  --color-paper: #f5f3ee;
+  --color-cream: #f4f1ea;
+  --color-ink: #151842;
+  --color-ink-muted: #5a5f80;
+  --color-ink-faint: #8a8fae;
+  --color-line: #e6e1d6;
+  --color-line-soft: #eee9dd;
+  --color-line-strong: #d9d3c5;
+  --color-row-hover: #faf8f3;
+  --color-ocre: #e2a33a;
+  --color-ocre-soft: #f2c574;
+  --color-ocre-ink: #8a5a0c;
+  --color-ocre-deep: #7a4e08;
+  --color-ocre-tint: #fbefd9;
+  --color-ocre-dot: #c98a1e;
+  --color-indigo: #2a3399;
+  --color-online: #1f8a5b;
+  --color-online-tint: #dff1e8;
+  --color-online-ink: #17603f;
+  --color-side: #c9cbe3;
+  --color-side-muted: #b9bcd9;
+  --color-side-faint: #8f93bf;
+  --color-danger: #b42318;
+  --color-danger-tint: #fdecea;
+
+  --font-heading: var(--font-bricolage-grotesque), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+  }
+
+  /* Contour de focus : indigo sur fond clair, ocre sur fond sombre (contraste d'au moins 3 pour 1). */
+  :focus-visible {
+    outline: 2px solid var(--color-indigo);
+    outline-offset: 2px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-ocre);
+  }
+}
+
+@layer components {
+  /* Grille de symboles de la page de connexion : chaque case s'allume à son rythme. */
+  .login-cell {
+    opacity: 0.08;
+    animation: login-glow var(--d, 4s) ease-in-out var(--dl, 0s) infinite;
+  }
+
+  .row-hover {
+    transition: background-color 0.15s ease;
+  }
+  .nav-hover {
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+  @media (hover: hover) {
+    .row-hover:hover {
+      background: var(--color-row-hover);
+    }
+    .nav-hover:hover {
+      background: rgb(255 255 255 / 0.06);
+      color: var(--color-cream);
+    }
+  }
+}
+
+@keyframes login-glow {
+  0%,
+  40%,
+  75%,
+  100% {
+    opacity: 0.08;
+  }
+  55% {
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

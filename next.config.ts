@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
     // Seules les photos du bucket media sont optimisées, aucune autre adresse.
     remotePatterns: [new URL(`${supabaseUrl}/storage/v1/object/public/media/**`)],
   },
+  // L'admin n'apparaît jamais dans les moteurs de recherche (en plus de la balise robots de ses pages).
+  async headers() {
+    return [{ source: '/admin/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }]
+  },
   // Le français vit à la racine : / est servi par la page /fr, et /fr renvoie vers /.
   async redirects() {
     return [{ source: '/fr', destination: '/', permanent: true }]
