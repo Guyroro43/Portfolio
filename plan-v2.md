@@ -132,6 +132,8 @@ Tables, bucket et règles RLS comme dans le brief. Trois ajouts :
 
 Les envois de photos partent directement du navigateur vers le bucket, avec ta session (règles RLS du bucket). La clé secrète ne sert qu'au script d'import.
 
+Écart au brief, validé le 29 octobre 2026 : la table `media` est lisible par l'admin seulement, pas par les visiteurs (`supabase/migrations/0002_media_admin_only.sql`). Une photo envoyée mais pas encore publiée reste ainsi privée. Le site public n'en souffre pas : la version publiée contient déjà la copie de ses photos.
+
 ## 5. Animations
 
 | Élément | Technique |
