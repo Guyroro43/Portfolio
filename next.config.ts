@@ -1,9 +1,13 @@
 import type { NextConfig } from 'next'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-if (!supabaseUrl) {
-  throw new Error('NEXT_PUBLIC_SUPABASE_URL manque : copie .env.example en .env.local, ou ajoute-la dans Vercel')
+// Variables indispensables : sans elles, la construction s'arrête ici avec un message clair,
+// plutôt que de mettre en ligne un site sans photos ou un admin qui plante.
+for (const name of ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY', 'ADMIN_EMAIL']) {
+  if (!process.env[name]) {
+    throw new Error(`${name} manque : copie .env.example en .env.local, ou ajoute-la dans Vercel (Production et Preview)`)
+  }
 }
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
