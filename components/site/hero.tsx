@@ -27,8 +27,36 @@ export function Hero({ section, media, lang, nextSectionId }: Props) {
       <Halos />
       <AdinkraGrid />
 
-      <div className="relative mx-auto flex max-w-[1200px] flex-col gap-[22px] px-6 pt-7 pb-14 lg:flex-row lg:flex-wrap lg:items-center lg:gap-16 lg:px-8 lg:pt-24 lg:pb-[136px]">
-        <div className="order-2 flex min-w-0 flex-col gap-[22px] lg:order-1 lg:flex-[1_1_560px] lg:gap-6">
+      {/*
+        La photo vient avant le texte dans le HTML et chaque bloc a sa place fixe dans la grille :
+        le navigateur affiche la page au fil de la lecture, et rien ne bouge quand la suite arrive.
+      */}
+      <div className="relative mx-auto grid max-w-[1200px] gap-[22px] px-6 pt-7 pb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-center lg:gap-16 lg:px-8 lg:pt-24 lg:pb-[136px]">
+        {photo && (
+          <div className="a-photo relative min-w-0 lg:col-start-2 lg:row-start-1">
+            <Adinkra
+              symbol="adinkrahene"
+              strokeWidth={1.2}
+              className="absolute -top-[30px] -right-[30px] size-[120px] text-accent opacity-55 lg:-top-14 lg:-right-14 lg:size-[180px]"
+            />
+            <figure className="relative h-[400px] overflow-hidden rounded-[24px] border border-white/14 bg-surface-dark lg:aspect-[4/5] lg:h-auto lg:rounded-[28px]">
+              <SiteImage
+                entry={photo}
+                lang={lang}
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="object-cover object-[center_20%]"
+                preload
+              />
+            </figure>
+          </div>
+        )}
+
+        <div
+          className={cn(
+            'flex min-w-0 flex-col gap-[22px] lg:row-start-1 lg:gap-6',
+            photo ? 'lg:col-start-1' : 'lg:col-span-2',
+          )}
+        >
           <p className="a-up inline-flex items-center gap-2 self-start rounded-full border border-white/14 bg-white/4 px-3 py-[7px] text-[13px] text-on-dark-nav md:px-3.5 md:py-2">
             <MapPin size={16} className="text-accent" aria-hidden="true" />
             {t(data.location, lang)}
@@ -103,25 +131,6 @@ export function Hero({ section, media, lang, nextSectionId }: Props) {
           )}
           <script dangerouslySetInnerHTML={{ __html: COUNTER_SCRIPT }} />
         </div>
-
-        {photo && (
-          <div className="a-photo relative order-1 min-w-0 lg:order-2 lg:flex-[0_1_420px]">
-            <Adinkra
-              symbol="adinkrahene"
-              strokeWidth={1.2}
-              className="absolute -top-[30px] -right-[30px] size-[120px] text-accent opacity-55 lg:-top-14 lg:-right-14 lg:size-[180px]"
-            />
-            <figure className="relative h-[400px] overflow-hidden rounded-[24px] border border-white/14 bg-surface-dark lg:aspect-[4/5] lg:h-auto lg:rounded-[28px]">
-              <SiteImage
-                entry={photo}
-                lang={lang}
-                sizes="(min-width: 1024px) 420px, 100vw"
-                className="object-cover object-[center_20%]"
-                preload
-              />
-            </figure>
-          </div>
-        )}
       </div>
 
       {nextSectionId && (
