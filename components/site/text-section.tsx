@@ -42,16 +42,20 @@ export function TextSection({ section, media, lang, ...placement }: Props) {
             )}
           >
             <h3 className="mb-2 font-heading text-[19px] font-bold md:mb-2.5 md:text-xl">{t(side.title, lang)}</h3>
+            {/* Un dl n'accepte qu'un niveau de div autour de dt et dd : l'icône vit donc dans le dt, placée en absolu. */}
             <dl>
               {side.rows.map((row) => (
-                <div key={row.id} className="flex items-start gap-3.5 border-t border-line-soft py-3 last:pb-0 md:py-3.5">
-                  <span className="hidden size-[38px] flex-none items-center justify-center rounded-[10px] bg-tile-warm text-accent-ink md:flex">
-                    <Icon name={row.icon} />
-                  </span>
-                  <div className="flex flex-col gap-0.5">
-                    <dt className="text-xs font-semibold text-ink-label md:text-[13px]">{t(row.label, lang)}</dt>
-                    <dd className="text-[15px] leading-[1.45] md:leading-normal">{t(row.value, lang)}</dd>
-                  </div>
+                <div
+                  key={row.id}
+                  className="relative flex flex-col gap-0.5 border-t border-line-soft py-3 last:pb-0 md:py-3.5 md:pl-[52px]"
+                >
+                  <dt className="text-xs font-semibold text-ink-label md:text-[13px]">
+                    <span className="absolute top-3.5 left-0 hidden size-[38px] items-center justify-center rounded-[10px] bg-tile-warm text-accent-ink md:flex">
+                      <Icon name={row.icon} />
+                    </span>
+                    {t(row.label, lang)}
+                  </dt>
+                  <dd className="text-[15px] leading-[1.45] md:leading-normal">{t(row.value, lang)}</dd>
                 </div>
               ))}
             </dl>
