@@ -166,6 +166,9 @@
       animation-play-state: paused;
     }
   }
+  .marquee[data-paused] .a-marquee {
+    animation-play-state: paused;
+  }
 
   /* Téléphone : mêmes animations, en plus court */
   @media (max-width: 767px) {

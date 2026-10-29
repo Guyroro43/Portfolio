@@ -11,6 +11,7 @@ const UI = {
   closeMenu: { fr: 'Fermer le menu', en: 'Close menu' },
   backToTop: { fr: 'Retour en haut de la page', en: 'Back to the top of the page' },
   scrollCue: { fr: 'Défiler', en: 'Scroll' },
+  marqueePause: { fr: 'Mettre en pause la bande de noms', en: 'Pause the scrolling names' },
   scrollCueLabel: { fr: 'Descendre vers la section suivante', en: 'Scroll to the next section' },
   featured: { fr: 'Projet phare', en: 'Featured project' },
   viewSite: { fr: 'Voir le site', en: 'View site' },
