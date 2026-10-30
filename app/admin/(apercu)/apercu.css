@@ -1,0 +1,19 @@
+/*
+ * Aperçu de l'admin : tout s'affiche directement, sans attendre le défilement.
+ * Les éléments ajoutés pendant la frappe ne passeraient jamais par l'observateur du site.
+ */
+[data-reveal],
+[data-reveal-step] {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+[data-timeline-line] {
+  transform: none !important;
+}
+
+/* Le cadre prend la hauteur de son contenu : jamais de barre de défilement à l'intérieur. */
+html,
+body {
+  overflow: hidden;
+}

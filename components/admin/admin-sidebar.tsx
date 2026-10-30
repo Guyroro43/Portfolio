@@ -1,7 +1,7 @@
 'use client'
 
 import { ExternalLink, Images, LayoutDashboard, LogOut, Menu, Palette, X } from 'lucide-react'
-import Link from 'next/link'
+import { GuardedLink } from './save-guard'
 import { usePathname } from 'next/navigation'
 import { useEffect, useId, useRef, useState } from 'react'
 import { signOut } from '@/app/admin/actions'
@@ -45,13 +45,13 @@ export function AdminSidebar({ sections }: { sections: SectionNavItem[] }) {
       className="on-dark bg-night text-side lg:sticky lg:top-0 lg:flex lg:h-dvh lg:w-[248px] lg:flex-none lg:flex-col lg:gap-[22px] lg:overflow-y-auto lg:px-3.5 lg:py-5"
     >
       <div className="flex items-center justify-between gap-3 px-4 py-2.5 lg:p-0">
-        <Link href="/admin" onClick={close} className="flex flex-1 items-center gap-2.5 px-2.5 py-1.5 font-heading text-xl font-extrabold text-cream">
+        <GuardedLink href="/admin" onClick={close} className="flex flex-1 items-center gap-2.5 px-2.5 py-1.5 font-heading text-xl font-extrabold text-cream">
           <Adinkra symbol="adinkrahene" strokeWidth={3} className="size-[22px] text-ocre" />
           <span translate="no">
             ANASSE<span className="text-ocre">.</span>
           </span>
           <span className="ml-auto rounded-md bg-white/8 px-2 py-[3px] font-body text-[11px] font-semibold text-side">admin</span>
-        </Link>
+        </GuardedLink>
         <button
           ref={buttonRef}
           type="button"
@@ -70,7 +70,7 @@ export function AdminSidebar({ sections }: { sections: SectionNavItem[] }) {
           {PAGES.map(({ href, label, icon: Icon }) => {
             const current = pathname === href
             return (
-              <Link
+              <GuardedLink
                 key={href}
                 href={href}
                 onClick={close}
@@ -79,7 +79,7 @@ export function AdminSidebar({ sections }: { sections: SectionNavItem[] }) {
               >
                 <Icon size={18} aria-hidden="true" />
                 {label}
-              </Link>
+              </GuardedLink>
             )
           })}
         </nav>
@@ -92,7 +92,7 @@ export function AdminSidebar({ sections }: { sections: SectionNavItem[] }) {
             const href = `/admin/sections/${section.id}`
             const current = pathname === href || pathname.startsWith(`${href}/`)
             return (
-              <Link
+              <GuardedLink
                 key={section.id}
                 href={href}
                 onClick={close}
@@ -105,7 +105,7 @@ export function AdminSidebar({ sections }: { sections: SectionNavItem[] }) {
                 <span className="w-5 flex-none text-[11px] text-side-faint">{section.num}</span>
                 <span className="min-w-0 flex-1 truncate">{section.name}</span>
                 {!section.visible && <span className="text-[11px] text-side-faint">masquée</span>}
-              </Link>
+              </GuardedLink>
             )
           })}
         </nav>

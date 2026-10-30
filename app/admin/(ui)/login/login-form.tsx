@@ -3,7 +3,7 @@
 import { Lock } from 'lucide-react'
 import { useActionState } from 'react'
 import { AuthError, AuthSubmit, authInput, authLabel } from '@/components/admin/auth-fields'
-import { signIn, type FormState } from '../actions'
+import { signIn, type FormState } from '@/app/admin/actions'
 
 export function LoginForm({ notice }: { notice: string | null }) {
   const [state, action, pending] = useActionState<FormState, FormData>(signIn, { error: notice })

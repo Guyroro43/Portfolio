@@ -3,7 +3,7 @@
 import { Mail } from 'lucide-react'
 import { useActionState } from 'react'
 import { AuthError, AuthSubmit, authInput, authLabel } from '@/components/admin/auth-fields'
-import { requestPasswordReset, type FormState } from '../actions'
+import { requestPasswordReset, type FormState } from '@/app/admin/actions'
 
 export function ResetForm() {
   const [state, action, pending] = useActionState<FormState, FormData>(requestPasswordReset, { error: null })

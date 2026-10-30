@@ -1,4 +1,5 @@
 import { AdminSidebar } from '@/components/admin/admin-sidebar'
+import { SaveGuardProvider } from '@/components/admin/save-guard'
 import { getSiteContent } from '@/lib/admin/content'
 import { sectionNavItems } from '@/lib/admin/summary'
 
@@ -10,9 +11,11 @@ export default async function EspaceLayout({ children }: { children: React.React
   const { draft } = await getSiteContent()
 
   return (
-    <div className="min-h-dvh lg:flex">
-      <AdminSidebar sections={sectionNavItems(draft.sections)} />
-      <div className="flex min-w-0 flex-1 flex-col">{children}</div>
-    </div>
+    <SaveGuardProvider>
+      <div className="min-h-dvh lg:flex">
+        <AdminSidebar sections={sectionNavItems(draft.sections)} />
+        <div className="flex min-w-0 flex-1 flex-col">{children}</div>
+      </div>
+    </SaveGuardProvider>
   )
 }

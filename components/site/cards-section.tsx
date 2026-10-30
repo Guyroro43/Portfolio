@@ -17,7 +17,8 @@ type Props = SectionPlacement & { section: Section; media: Published['media']; l
 const cascade = (index: number) => ({ '--delay': `${(index % 3) * 0.08}s` }) as React.CSSProperties
 
 export function CardsSection({ section, media, lang, ...placement }: Props) {
-  const { variant, items } = section.data
+  const { variant } = section.data
+  const items = section.data.items.filter((item) => item.visible)
   const featured = variant === 'projects' ? items.find((item) => item.featured) : undefined
   const rest = items.filter((item) => item !== featured)
 
@@ -45,6 +46,15 @@ export function CardsSection({ section, media, lang, ...placement }: Props) {
       )}
     </SectionShell>
   )
+}
+
+/** Une seule carte, telle qu'elle apparaît dans sa section. Sert à l'aperçu de l'admin. */
+export function CardView({ section, item, media, lang }: { section: Section; item: Card; media: Published['media']; lang: Locale }) {
+  const { variant } = section.data
+  if (variant === 'projects' && item.featured) return <FeaturedProject item={item} section={section} media={media} lang={lang} />
+  if (variant === 'projects') return <ProjectCard item={item} index={0} media={media} lang={lang} />
+  if (variant === 'tags') return <TagsCard item={item} index={0} lang={lang} />
+  return <PictureCard item={item} index={0} media={media} lang={lang} />
 }
 
 const STATUS_STYLE: Record<ProjectStatus, string> = {

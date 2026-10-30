@@ -23,7 +23,17 @@ const nextConfig: NextConfig = {
   },
   // L'admin n'apparaît jamais dans les moteurs de recherche (en plus de la balise robots de ses pages).
   async headers() {
-    return [{ source: '/admin/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }]
+    return [
+      {
+        source: '/admin/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+          // Seul l'admin lui-même peut afficher ses pages dans un cadre (l'aperçu en direct).
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+        ],
+      },
+    ]
   },
   // Le français vit à la racine : / est servi par la page /fr, et /fr renvoie vers /.
   async redirects() {

@@ -65,6 +65,8 @@ const cardsData = z.object({
     .array(
       z.object({
         id,
+        // Interrupteur de la carte dans l'admin. Absent des anciens documents : visible par défaut.
+        visible: z.boolean().default(true),
         icon: icon.nullable(),
         kicker: shortText,
         title: shortText,
@@ -150,7 +152,7 @@ export const cropSchema = z.object({
 })
 
 export const mediaEntrySchema = z.object({
-  path: z.string().regex(/^[a-z0-9][a-z0-9/._-]{0,200}\.webp$/, 'Chemin de photo invalide'),
+  path: z.string().regex(/^(?!.*\.\.)[a-z0-9][a-z0-9/._-]{0,200}\.webp$/, 'Chemin de photo invalide'),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   crop: cropSchema.nullable(),

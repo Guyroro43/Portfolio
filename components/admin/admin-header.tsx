@@ -1,19 +1,34 @@
 import { Eye, Upload } from 'lucide-react'
 import { getSiteContent, hasUnpublishedChanges } from '@/lib/admin/content'
 import { cn } from '@/lib/content/view'
+import { GuardedLink } from './save-guard'
 
 /**
  * Barre du haut de chaque page de l'admin : titre, état de publication, Aperçu et Publier.
  * Aperçu et Publier restent inactifs jusqu'à l'étape de publication.
  */
-export async function AdminHeader({ title }: { title: string }) {
+export async function AdminHeader({ title, trail }: { title: string; trail?: { href: string; label: string }[] }) {
   const { draft, published } = await getSiteContent()
   const pending = hasUnpublishedChanges(draft, published)
 
   return (
     <header className="flex flex-wrap items-center justify-between gap-4 border-b border-line bg-white px-4 py-3.5 sm:px-8">
       <div className="flex flex-col gap-0.5">
-        <p className="text-xs text-ink-muted">Espace admin</p>
+        {trail ? (
+          <nav aria-label="Fil d’Ariane" className="text-xs text-ink-muted">
+            {trail.map((step) => (
+              <span key={step.href}>
+                <GuardedLink href={step.href} className="underline-offset-2 hover:underline">
+                  {step.label}
+                </GuardedLink>
+                {' / '}
+              </span>
+            ))}
+            <span aria-current="page">{title}</span>
+          </nav>
+        ) : (
+          <p className="text-xs text-ink-muted">Espace admin</p>
+        )}
         <h1 className="font-heading text-2xl font-bold">{title}</h1>
       </div>
 

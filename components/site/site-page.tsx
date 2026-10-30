@@ -1,4 +1,4 @@
-import type { Published } from '@/lib/content/schema'
+import type { Published, Section } from '@/lib/content/schema'
 import { cn, sectionNumbers } from '@/lib/content/view'
 import { t, type Locale } from '@/lib/i18n'
 import { ui } from '@/lib/ui-text'
@@ -13,10 +13,9 @@ import { TextSection } from './text-section'
 import { TimelineSection } from './timeline-section'
 import { isDarkTone, palette, TONE_BG } from './tone'
 
-/** La page publique, section par section, dans l'ordre du contenu. Utilisée aussi par l'aperçu de l'admin. */
+/** La page publique, section par section, dans l'ordre du contenu. */
 export function SitePage({ content, lang }: { content: Published; lang: Locale }) {
   const sections = content.sections.filter((s) => s.visible)
-  const numbers = sectionNumbers(sections)
   const lastTone = sections.at(-1)?.tone ?? 'dark'
 
   return (
@@ -31,42 +30,9 @@ export function SitePage({ content, lang }: { content: Published; lang: Locale }
       <SiteHeader content={content} lang={lang} />
 
       <main id="contenu" tabIndex={-1}>
-        {sections.map((section, index) => {
-          const previous = sections[index - 1]
-          const placement = {
-            joined:
-              previous !== undefined &&
-              previous.type !== 'hero' &&
-              previous.type !== 'marquee' &&
-              previous.tone === section.tone,
-            last: index === sections.length - 1,
-            number: numbers.get(section.id) ?? '',
-          }
-          switch (section.type) {
-            case 'hero':
-              return (
-                <Hero
-                  key={section.id}
-                  section={section}
-                  media={content.media}
-                  lang={lang}
-                  nextSectionId={sections[index + 1]?.id ?? null}
-                />
-              )
-            case 'marquee':
-              return <Marquee key={section.id} section={section} lang={lang} />
-            case 'text':
-              return <TextSection key={section.id} section={section} media={content.media} lang={lang} {...placement} />
-            case 'cards':
-              return <CardsSection key={section.id} section={section} media={content.media} lang={lang} {...placement} />
-            case 'timeline':
-              return <TimelineSection key={section.id} section={section} lang={lang} {...placement} />
-            case 'gallery':
-              return <GallerySection key={section.id} section={section} media={content.media} lang={lang} {...placement} />
-            case 'links':
-              return <LinksSection key={section.id} section={section} lang={lang} {...placement} />
-          }
-        })}
+        {sections.map((section) => (
+          <SectionView key={section.id} section={section} sections={sections} media={content.media} lang={lang} />
+        ))}
       </main>
 
       <footer className={cn(TONE_BG[lastTone])}>
@@ -87,4 +53,41 @@ export function SitePage({ content, lang }: { content: Published; lang: Locale }
       <SiteEffects />
     </>
   )
+}
+
+type SectionViewProps = {
+  section: Section
+  /** Les sections visibles, dans l'ordre : elles donnent le numéro et le raccord avec la section d'avant. */
+  sections: Section[]
+  media: Published['media']
+  lang: Locale
+}
+
+/** Une section, placée comme sur la page. Sert aussi à l'aperçu de l'admin, section par section. */
+export function SectionView({ section, sections, media, lang }: SectionViewProps) {
+  const index = sections.findIndex((s) => s.id === section.id)
+  const previous = index > 0 ? sections[index - 1] : undefined
+  const placement = {
+    joined:
+      previous !== undefined && previous.type !== 'hero' && previous.type !== 'marquee' && previous.tone === section.tone,
+    last: index === sections.length - 1,
+    number: sectionNumbers(sections).get(section.id) ?? '',
+  }
+
+  switch (section.type) {
+    case 'hero':
+      return <Hero section={section} media={media} lang={lang} nextSectionId={sections[index + 1]?.id ?? null} />
+    case 'marquee':
+      return <Marquee section={section} lang={lang} />
+    case 'text':
+      return <TextSection section={section} media={media} lang={lang} {...placement} />
+    case 'cards':
+      return <CardsSection section={section} media={media} lang={lang} {...placement} />
+    case 'timeline':
+      return <TimelineSection section={section} lang={lang} {...placement} />
+    case 'gallery':
+      return <GallerySection section={section} media={media} lang={lang} {...placement} />
+    case 'links':
+      return <LinksSection section={section} lang={lang} {...placement} />
+  }
 }

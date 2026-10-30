@@ -3,7 +3,7 @@
 import { KeyRound } from 'lucide-react'
 import { useActionState } from 'react'
 import { AuthError, AuthSubmit, authInput, authLabel } from '@/components/admin/auth-fields'
-import { updatePassword, type FormState } from '../actions'
+import { updatePassword, type FormState } from '@/app/admin/actions'
 
 export function PasswordForm() {
   const [state, action, pending] = useActionState<FormState, FormData>(updatePassword, { error: null })
