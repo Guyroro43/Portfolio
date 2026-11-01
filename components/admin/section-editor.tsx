@@ -4,17 +4,22 @@ import { Trash2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useMemo, useState, useTransition } from 'react'
 import { deleteSection } from '@/app/admin/draft-actions'
-import type { Content, Section } from '@/lib/content/schema'
+import type { Content, Published, Section } from '@/lib/content/schema'
 import { t } from '@/lib/i18n'
 import { ConfirmDialog } from './dialog'
-import { Panel } from './fields'
 import { PreviewPane } from './preview-pane'
 import { SaveBar } from './save-bar'
+import { SectionContent } from './section-content'
 import { SectionSettings } from './section-settings'
 import { useSectionDraft } from './use-section-draft'
 
 /** Page d'une section : réglages, contenu, aperçu en direct, enregistrement automatique. */
-export function SectionEditor({ content, section: initial, hash }: { content: Content; section: Section; hash: string }) {
+export function SectionEditor({ content, section: initial, hash, media }: {
+  content: Content
+  section: Section
+  hash: string
+  media: Published['media']
+}) {
   const { section, update, save, status, errors, message, savedAt } = useSectionDraft(initial, hash)
 
   // Le reste du brouillon tel qu'il était à l'ouverture, avec la section en cours de frappe.
@@ -29,9 +34,7 @@ export function SectionEditor({ content, section: initial, hash }: { content: Co
     <main className="flex flex-wrap items-start gap-6 p-4 sm:p-8">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-5">
         <SectionSettings section={section} update={update} errors={errors} />
-        <Panel title="Contenu" description="Les textes, cartes et photos de cette section se modifieront ici : c’est la prochaine partie de l’étape 6.">
-          <span />
-        </Panel>
+        <SectionContent section={section} update={update} errors={errors} media={media} sections={content.sections} />
         <SaveBar
           status={status}
           savedAt={savedAt}
@@ -47,7 +50,8 @@ export function SectionEditor({ content, section: initial, hash }: { content: Co
   )
 }
 
-function DeleteSection({ id, name }: { id: string; name: string }) {
+/** « Supprimer cette section », avec confirmation, puis retour à la vue d'ensemble. */
+export function DeleteSection({ id, name }: { id: string; name: string }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const [error, setError] = useState<string | null>(null)
