@@ -1,15 +1,12 @@
-import { Eye, Upload } from 'lucide-react'
-import { getSiteContent, hasUnpublishedChanges } from '@/lib/admin/content'
+import { getSiteContent } from '@/lib/admin/content'
 import { cn } from '@/lib/content/view'
+import { PreviewButton, PublishButton } from './publish-controls'
 import { GuardedLink } from './save-guard'
 
-/**
- * Barre du haut de chaque page de l'admin : titre, état de publication, Aperçu et Publier.
- * Aperçu et Publier restent inactifs jusqu'à l'étape de publication.
- */
+/** Barre du haut de chaque page de l'admin : titre, modifications pas encore publiées, Aperçu, Publier. */
 export async function AdminHeader({ title, trail }: { title: string; trail?: { href: string; label: string }[] }) {
-  const { draft, published } = await getSiteContent()
-  const pending = hasUnpublishedChanges(draft, published)
+  const { changes } = await getSiteContent()
+  const count = changes.length
 
   return (
     <header className="flex flex-wrap items-center justify-between gap-4 border-b border-line bg-white px-4 py-3.5 sm:px-8">
@@ -36,28 +33,16 @@ export async function AdminHeader({ title, trail }: { title: string; trail?: { h
         <span
           className={cn(
             'inline-flex items-center gap-2 rounded-full px-3 py-2 text-[13px] font-semibold',
-            pending ? 'bg-ocre-tint text-ocre-deep' : 'bg-online-tint text-online-ink',
+            count ? 'bg-ocre-tint text-ocre-deep' : 'bg-online-tint text-online-ink',
           )}
         >
-          <span aria-hidden="true" className={cn('size-2 rounded-full', pending ? 'bg-ocre-dot' : 'bg-online')} />
-          {pending ? 'Modifications pas encore publiées' : 'Tout est publié'}
+          <span aria-hidden="true" className={cn('size-2 rounded-full', count ? 'bg-ocre-dot' : 'bg-online')} />
+          {count === 0
+            ? 'Tout est publié'
+            : `${count} modification${count > 1 ? 's' : ''} pas encore publiée${count > 1 ? 's' : ''}`}
         </span>
-        <button
-          type="button"
-          disabled
-          className="inline-flex min-h-[42px] items-center gap-2 rounded-[10px] border border-line-strong bg-white px-4 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          <Eye size={17} aria-hidden="true" />
-          Aperçu
-        </button>
-        <button
-          type="button"
-          disabled
-          className="inline-flex min-h-[42px] items-center gap-2 rounded-[10px] bg-ocre px-[18px] text-sm font-semibold text-night disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          <Upload size={17} aria-hidden="true" />
-          Publier
-        </button>
+        <PreviewButton />
+        <PublishButton count={count} />
       </div>
     </header>
   )

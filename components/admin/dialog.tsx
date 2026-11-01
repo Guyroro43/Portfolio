@@ -52,11 +52,12 @@ export const primaryButton =
   'inline-flex min-h-[42px] items-center justify-center gap-2 rounded-[10px] bg-indigo px-[18px] text-sm font-semibold text-white disabled:opacity-60'
 
 /** Confirmation avant une suppression. Le bouton « Annuler » reçoit le focus en premier. */
-export function ConfirmDialog({ open, title, children, confirmLabel, onConfirm, onClose, busy, error }: {
+export function ConfirmDialog({ open, title, children, confirmLabel, busyLabel = 'Suppression…', onConfirm, onClose, busy, error }: {
   open: boolean
   title: string
   children: React.ReactNode
   confirmLabel: string
+  busyLabel?: string
   onConfirm: () => void
   onClose: () => void
   busy?: boolean
@@ -75,7 +76,7 @@ export function ConfirmDialog({ open, title, children, confirmLabel, onConfirm, 
           Annuler
         </button>
         <button type="button" onClick={onConfirm} disabled={busy} className={dangerButton}>
-          {busy ? 'Suppression…' : confirmLabel}
+          {busy ? busyLabel : confirmLabel}
         </button>
       </div>
     </Dialog>

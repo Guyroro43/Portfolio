@@ -31,5 +31,11 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: [
+    '/admin/:path*',
+    // Aperçu du brouillon (cookie de Next.js, posé par le bouton Aperçu) : la session de l'admin
+    // doit aussi se rafraîchir sur les pages du site. Les visiteurs n'ont pas ce cookie.
+    { source: '/', has: [{ type: 'cookie', key: '__prerender_bypass' }] },
+    { source: '/en', has: [{ type: 'cookie', key: '__prerender_bypass' }] },
+  ],
 }
