@@ -9,6 +9,7 @@ import { revertChange as revert } from '@/lib/admin/changes'
 import { checkContrast, formatRatio } from '@/lib/admin/contrast'
 import { mutateDraft, type DraftResult } from '@/lib/admin/draft'
 import { getMediaLibrary } from '@/lib/admin/media'
+import { removeOrphanFiles } from '@/lib/admin/media-files'
 import { buildPublished } from '@/lib/admin/published'
 import { contentSchema, publishedSchema } from '@/lib/content/schema'
 
@@ -68,6 +69,8 @@ export async function publishSite(options?: unknown): Promise<PublishResult> {
     if (!error) {
       // Les pages publiques se régénèrent à la prochaine visite ; l'admin se met à jour tout de suite.
       updateTag('site-content')
+      // Les fichiers que plus rien n'utilise (photos supprimées ou remplacées) quittent le bucket.
+      await removeOrphanFiles(supabase)
       refresh()
       return { ok: true }
     }
@@ -81,6 +84,7 @@ const target = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('order') }),
   z.object({ kind: z.literal('theme') }),
   z.object({ kind: z.literal('site') }),
+  z.object({ kind: z.literal('media'), id: z.string().regex(/^[a-z0-9][a-z0-9-]{0,63}$/) }),
 ])
 
 /** « Annuler » dans « Pas encore publié » : remet ce changement comme dans la version en ligne. */
@@ -91,7 +95,18 @@ export async function revertChange(input: unknown): Promise<DraftResult<object>>
 
   const { data, error } = await supabase.from('site_content').select('content').eq('key', 'published').single()
   if (error) return { ok: false, error: 'Lecture de la version en ligne impossible.' }
-  const published = contentSchema.parse(data.content)
+  const published = publishedSchema.parse(data.content)
+
+  // Une photo : sa ligne reprend la légende, la description, le cadrage et le fichier en ligne
+  // (le fichier est toujours là : il n'est effacé qu'une fois inutile à la version en ligne).
+  if (parsed.data.kind === 'media') {
+    const online = Object.hasOwn(published.media, parsed.data.id) ? published.media[parsed.data.id] : undefined
+    if (!online) return { ok: false, error: 'Cette photo n’est pas dans la version en ligne.' }
+    const { error: writeError } = await supabase.from('media').upsert({ id: parsed.data.id, ...online })
+    if (writeError) return { ok: false, error: 'Annulation impossible. Réessaie dans un instant.' }
+    refresh()
+    return { ok: true }
+  }
 
   const result = await mutateDraft(supabase, (draft) => ({ content: revert(draft, published, parsed.data), result: {} }))
   if (result.ok) refresh()

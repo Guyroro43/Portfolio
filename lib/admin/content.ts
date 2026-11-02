@@ -2,6 +2,7 @@ import { cache } from 'react'
 import { contentSchema, publishedSchema } from '@/lib/content/schema'
 import { requireAdmin } from './auth'
 import { listChanges } from './changes'
+import { getMediaLibrary } from './media'
 
 /**
  * Brouillon et version publiée, lus avec la session de l'admin (les règles RLS refusent le
@@ -22,8 +23,8 @@ export const getSiteContent = cache(async () => {
     draft,
     published,
     publishedAt: String(publishedRow.updated_at),
-    /** « Pas encore publié », section par section. */
-    changes: listChanges(draft, published),
+    /** « Pas encore publié », section par section, photos comprises. */
+    changes: listChanges(draft, published, await getMediaLibrary()),
   }
 })
 

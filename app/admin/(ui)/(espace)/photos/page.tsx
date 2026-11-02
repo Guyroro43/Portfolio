@@ -1,23 +1,26 @@
 import type { Metadata } from 'next'
 import { AdminHeader } from '@/components/admin/admin-header'
-import { ComingSoon } from '@/components/admin/coming-soon'
-import { requireAdmin } from '@/lib/admin/auth'
+import { MediaLibrary } from '@/components/admin/media-library'
+import { getSiteContent } from '@/lib/admin/content'
+import { getMediaLibrary } from '@/lib/admin/media'
+import { mediaUsage } from '@/lib/admin/usage'
 
-// Lit la session : la page attend la vérification avant de s'afficher (voir app/admin/layout.tsx).
+// Lit la session : la page attend la vérification avant de s'afficher (voir app/admin/(ui)/layout.tsx).
 export const instant = false
 
 export const metadata: Metadata = { title: 'Photos' }
 
 export default async function PhotosPage() {
-  await requireAdmin()
+  const [{ draft }, library] = await Promise.all([getSiteContent(), getMediaLibrary()])
+  // Les plus récentes d'abord : une photo qu'on vient d'envoyer apparaît en tête.
+  const photos = Object.entries(library)
+    .map(([id, entry]) => ({ id, entry }))
+    .reverse()
 
   return (
     <>
       <AdminHeader title="Photos" />
-      <ComingSoon title="Tes photos">
-        Ici, tu enverras tes photos, tu les recadreras et tu écriras leurs légendes en français et en anglais. Cet écran
-        arrive à l’étape 9.
-      </ComingSoon>
+      <MediaLibrary photos={photos} usage={mediaUsage(draft)} />
     </>
   )
 }

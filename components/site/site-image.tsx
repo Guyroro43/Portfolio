@@ -11,19 +11,50 @@ type Props = {
   preload?: boolean
 }
 
+/** Multiplie les largeurs d'un attribut sizes (« 420px », « 50vw ») : une photo cadrée s'affiche agrandie. */
+function scaleSizes(sizes: string, factor: number): string {
+  return sizes.replace(/(\d+(?:\.\d+)?)(px|vw)/g, (_, value: string, unit: string) => `${Math.round(Number(value) * factor)}${unit}`)
+}
+
 /**
  * Photo qui remplit son cadre (le parent fixe la taille, donc aucun saut de mise en page).
  * Le parent doit être en position relative.
+ *
+ * Avec un cadrage (choisi dans l'admin, la photo d'origine reste intacte) : la zone cadrée couvre
+ * le cadre et y est centrée, comme object-cover, grâce aux unités de conteneur (cqw, cqh).
  */
 export function SiteImage({ entry, lang, sizes, className, preload = false }: Props) {
+  const alt = t(entry.alt, lang)
+  const { crop } = entry
+  if (!crop) {
+    return <Image src={mediaSrc(entry)} alt={alt} fill sizes={sizes} preload={preload} className={className ?? 'object-cover'} />
+  }
+
+  const ratio = entry.width / entry.height
+  // Largeur de la photo entière à l'écran : assez grande pour que la zone cadrée couvre le cadre.
+  const width = `max(${(10000 / crop.width).toFixed(3)}cqw, ${((10000 * ratio) / crop.height).toFixed(3)}cqh)`
+  const height = `calc(${width} / ${ratio.toFixed(5)})`
+  const centerX = (crop.x + crop.width / 2) / 100
+  const centerY = (crop.y + crop.height / 2) / 100
+
   return (
-    <Image
-      src={mediaSrc(entry)}
-      alt={t(entry.alt, lang)}
-      fill
-      sizes={sizes}
-      preload={preload}
-      className={className ?? 'object-cover'}
-    />
+    <span className="absolute inset-0 overflow-hidden [container-type:size]">
+      <Image
+        src={mediaSrc(entry)}
+        alt={alt}
+        width={entry.width}
+        height={entry.height}
+        sizes={scaleSizes(sizes, Math.min(3, 100 / Math.min(crop.width, crop.height)))}
+        preload={preload}
+        style={{
+          position: 'absolute',
+          maxWidth: 'none',
+          width,
+          height,
+          left: `calc(50cqw - ${width} * ${centerX.toFixed(5)})`,
+          top: `calc(50cqh - ${height} * ${centerY.toFixed(5)})`,
+        }}
+      />
+    </span>
   )
 }
