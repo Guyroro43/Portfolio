@@ -8,6 +8,10 @@ type Props = {
   lang: Locale
   sizes: string
   className?: string
+  /**
+   * Photo principale (LCP) : préchargée dans le head et prioritaire. Avec preload seul, Next 16
+   * la laisse en priorité basse, à égalité avec les scripts qui se téléchargent en même temps.
+   */
   preload?: boolean
 }
 
@@ -26,8 +30,19 @@ function scaleSizes(sizes: string, factor: number): string {
 export function SiteImage({ entry, lang, sizes, className, preload = false }: Props) {
   const alt = t(entry.alt, lang)
   const { crop } = entry
+  const fetchPriority = preload ? 'high' : undefined
   if (!crop) {
-    return <Image src={mediaSrc(entry)} alt={alt} fill sizes={sizes} preload={preload} className={className ?? 'object-cover'} />
+    return (
+      <Image
+        src={mediaSrc(entry)}
+        alt={alt}
+        fill
+        sizes={sizes}
+        preload={preload}
+        fetchPriority={fetchPriority}
+        className={className ?? 'object-cover'}
+      />
+    )
   }
 
   const ratio = entry.width / entry.height
@@ -46,6 +61,7 @@ export function SiteImage({ entry, lang, sizes, className, preload = false }: Pr
         height={entry.height}
         sizes={scaleSizes(sizes, Math.min(3, 100 / Math.min(crop.width, crop.height)))}
         preload={preload}
+        fetchPriority={fetchPriority}
         style={{
           position: 'absolute',
           maxWidth: 'none',
