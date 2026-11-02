@@ -6,7 +6,8 @@ import type { Content } from '@/lib/content/schema'
 import { cn } from '@/lib/content/view'
 import type { Locale } from '@/lib/i18n'
 
-export type PreviewFocus = { sectionId: string; itemId?: string }
+/** La section (ou la carte) à montrer ; also ajoute d'autres sections dessous (écran Apparence). */
+export type PreviewFocus = { sectionId: string; itemId?: string; also?: string[] }
 
 /** Message envoyé à la page d'aperçu (app/admin/(apercu)/apercu). */
 export type PreviewMessage = { type: 'preview'; content: Content; focus: PreviewFocus; lang: Locale }

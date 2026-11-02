@@ -6,10 +6,13 @@ import { redirect } from 'next/navigation'
 import { z } from 'zod'
 import { requireAdmin } from '@/lib/admin/auth'
 import { revertChange as revert } from '@/lib/admin/changes'
+import { checkContrast, formatRatio } from '@/lib/admin/contrast'
 import { mutateDraft, type DraftResult } from '@/lib/admin/draft'
 import { getMediaLibrary } from '@/lib/admin/media'
 import { buildPublished } from '@/lib/admin/published'
 import { contentSchema, publishedSchema } from '@/lib/content/schema'
+
+export type PublishResult = DraftResult<object> | { ok: false; error: string; lowContrast: string[] }
 
 /** Bouton Aperçu : le site s'ouvre en mode brouillon (cookie de Next.js), pour ce navigateur seulement. */
 export async function enterPreview() {
@@ -29,8 +32,9 @@ export async function exitPreview() {
  * publish_site() fait tout dans une transaction (version publiée, historique, 10 versions gardées)
  * et refuse si le brouillon a changé depuis sa lecture : on relit alors une fois.
  */
-export async function publishSite(): Promise<DraftResult<object>> {
+export async function publishSite(options?: unknown): Promise<PublishResult> {
   const { supabase } = await requireAdmin()
+  const acceptLowContrast = z.object({ acceptLowContrast: z.literal(true) }).safeParse(options).success
   const library = await getMediaLibrary()
 
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -43,6 +47,16 @@ export async function publishSite(): Promise<DraftResult<object>> {
 
     const draft = contentSchema.safeParse(row.content)
     if (!draft.success) return { ok: false, error: 'Le brouillon contient une erreur : ouvre la section concernée pour la corriger.' }
+    // Couleurs trop peu contrastées (sous 4,5 pour 1) : on demande confirmation avant de publier.
+    const lowContrast = checkContrast(draft.data.theme.colors).filter((check) => !check.ok)
+    if (lowContrast.length && !acceptLowContrast) {
+      return {
+        ok: false,
+        error: 'Certaines couleurs sont peu lisibles.',
+        lowContrast: lowContrast.map((check) => `${check.label} : ${formatRatio(check.ratio)}`),
+      }
+    }
+
     const published = publishedSchema.safeParse(buildPublished(draft.data, library))
     if (!published.success) {
       const missing = published.error.issues.find((issue) => issue.message.startsWith('Photo introuvable'))

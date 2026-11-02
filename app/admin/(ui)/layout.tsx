@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './admin.css'
-import { fontClassNames } from '@/lib/fonts'
+import { allFontClassNames } from '@/lib/fonts'
 
 // Chaque page de l'admin attend la vérification de la session avant de s'afficher :
 // rien n'est pré-généré, rien n'est montré à un visiteur non connecté.
@@ -16,9 +16,11 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 }
 
+// Toutes les polices du site sont déclarées (sans être téléchargées tant qu'elles ne servent pas) :
+// l'écran Apparence affiche un échantillon de chacune.
 export default function AdminLayout({ children }: LayoutProps<'/admin'>) {
   return (
-    <html lang="fr" className={fontClassNames({ heading: 'bricolage-grotesque', body: 'inter' })}>
+    <html lang="fr" className={allFontClassNames}>
       <body className="bg-paper text-ink antialiased">{children}</body>
     </html>
   )

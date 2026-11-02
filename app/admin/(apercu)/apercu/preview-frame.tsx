@@ -67,7 +67,9 @@ export function PreviewFrame({ media }: { media: Published['media'] }) {
             <CardView section={section} item={item} media={media} lang={lang} />
           </div>
         ) : (
-          <SectionView section={section} sections={sections} media={media} lang={lang} />
+          [section, ...(focus.also ?? []).flatMap((id) => sections.filter((s) => s.id === id))].map((s) => (
+            <SectionView key={s.id} section={s} sections={sections} media={media} lang={lang} />
+          ))
         )}
       </div>
     </>

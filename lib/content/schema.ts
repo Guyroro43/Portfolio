@@ -160,12 +160,15 @@ export const mediaEntrySchema = z.object({
   alt: i18n(400),
 })
 
+/** Textes du site hors sections : onglet et Google, bouton du menu, pied de page. */
+export const siteSchema = z.object({
+  meta: z.object({ title: shortText, description: i18n(300) }),
+  contactButton: shortText,
+  footer: z.object({ left: shortText, right: shortText }),
+})
+
 const contentShape = {
-  site: z.object({
-    meta: z.object({ title: shortText, description: i18n(300) }),
-    contactButton: shortText,
-    footer: z.object({ left: shortText, right: shortText }),
-  }),
+  site: siteSchema,
   theme: themeSchema,
   sections: z.array(sectionSchema).max(30),
 }

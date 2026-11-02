@@ -1,6 +1,6 @@
 'use client'
 
-import { ExternalLink, Images, LayoutDashboard, LogOut, Menu, Palette, X } from 'lucide-react'
+import { ExternalLink, Images, LayoutDashboard, LogOut, Menu, Palette, Type, X } from 'lucide-react'
 import { GuardedLink } from './save-guard'
 import { usePathname } from 'next/navigation'
 import { useEffect, useId, useRef, useState } from 'react'
@@ -12,6 +12,7 @@ import { cn } from '@/lib/content/view'
 const PAGES = [
   { href: '/admin', label: 'Vue d’ensemble', icon: LayoutDashboard },
   { href: '/admin/apparence', label: 'Apparence', icon: Palette },
+  { href: '/admin/textes', label: 'Textes du site', icon: Type },
   { href: '/admin/photos', label: 'Photos', icon: Images },
 ]
 

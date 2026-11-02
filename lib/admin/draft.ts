@@ -3,10 +3,15 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import { contentSchema, type Content, type Section } from '@/lib/content/schema'
 import { firstIssue } from './errors'
 
-/** Empreinte d'une section : sert à savoir si quelqu'un l'a modifiée depuis qu'on l'a ouverte. */
-export function sectionHash(section: Section): string {
-  return createHash('sha256').update(JSON.stringify(section)).digest('hex').slice(0, 16)
+/**
+ * Empreinte d'une partie du brouillon (une section, le thème, les textes du site) : sert à savoir
+ * si quelqu'un l'a modifiée depuis qu'on l'a ouverte.
+ */
+export function partHash(part: unknown): string {
+  return createHash('sha256').update(JSON.stringify(part)).digest('hex').slice(0, 16)
 }
+
+export const sectionHash = (section: Section) => partHash(section)
 
 /** Erreur prévue, renvoyée telle quelle à l'admin. */
 export class DraftError extends Error {

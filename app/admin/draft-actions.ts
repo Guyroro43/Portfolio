@@ -3,10 +3,10 @@
 import { refresh } from 'next/cache'
 import { z } from 'zod'
 import { requireAdmin } from '@/lib/admin/auth'
-import { DraftError, mutateDraft, sectionHash, type DraftResult } from '@/lib/admin/draft'
+import { DraftError, mutateDraft, partHash, sectionHash, type DraftResult } from '@/lib/admin/draft'
 import { firstIssue } from '@/lib/admin/errors'
 import { CARD_VARIANTS, NEW_SECTION_KINDS, newSection, sectionId } from '@/lib/admin/new-section'
-import { sectionSchema } from '@/lib/content/schema'
+import { sectionSchema, siteSchema, themeSchema, type Content } from '@/lib/content/schema'
 import { t } from '@/lib/i18n'
 
 const CHANGED_ELSEWHERE = 'Les sections ont changé ailleurs, dans un autre onglet par exemple. Recharge la page.'
@@ -32,6 +32,38 @@ export async function saveSection(input: unknown, baseHash: string): Promise<Dra
     }
     return { content: { ...draft, sections: draft.sections.with(index, next) }, result: { hash: sectionHash(next) } }
   })
+}
+
+/**
+ * Enregistre le thème ou les textes du site, avec la même protection qu'une section :
+ * si cette partie a changé ailleurs depuis son ouverture, rien n'est écrasé.
+ */
+async function savePart<K extends 'theme' | 'site'>(
+  key: K,
+  schema: z.ZodType<Content[K]>,
+  input: unknown,
+  baseHash: string,
+): Promise<DraftResult<{ hash: string }>> {
+  const { supabase } = await requireAdmin()
+  const parsed = schema.safeParse(input)
+  if (!parsed.success) return { ok: false, error: firstIssue(parsed.error) }
+  const next = parsed.data
+
+  return mutateDraft(supabase, (draft) => {
+    const currentHash = partHash(draft[key])
+    if (currentHash !== baseHash && currentHash !== partHash(next)) {
+      throw new DraftError('conflict', 'Ces réglages ont été modifiés ailleurs, dans un autre onglet par exemple.')
+    }
+    return { content: { ...draft, [key]: next }, result: { hash: partHash(next) } }
+  })
+}
+
+export async function saveTheme(input: unknown, baseHash: string) {
+  return savePart('theme', themeSchema, input, baseHash)
+}
+
+export async function saveSiteTexts(input: unknown, baseHash: string) {
+  return savePart('site', siteSchema, input, baseHash)
 }
 
 /** Nouvel ordre des sections (glisser-déposer de la vue d'ensemble). */

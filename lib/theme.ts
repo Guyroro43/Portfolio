@@ -1,5 +1,18 @@
 import { themeSchema, type Theme } from './content/schema'
 
+/** Le thème des maquettes (design/Theme.dc.html), pour « Revenir au thème d'origine ». */
+export const DEFAULT_THEME: Theme = {
+  colors: {
+    bgDark: '#0B0E2E',
+    bgIndigo: '#12164A',
+    bgLight: '#F6F3EC',
+    accent: '#E2A33A',
+    text: '#151842',
+    textMuted: '#4B5075',
+  },
+  fonts: { heading: 'bricolage-grotesque', body: 'inter' },
+}
+
 /**
  * Variables CSS du thème publié. Les teintes secondaires (bordures, étiquettes, textes pâles)
  * en sont dérivées dans app/globals.css, donc changer une couleur met tout le site à jour.
