@@ -26,7 +26,7 @@ function applyChange(sections: Section[], change: Change): Section[] {
  * Vue d'ensemble : les sections dans l'ordre de la page. Chaque changement s'affiche tout de suite,
  * puis s'enregistre ; en cas d'échec, la liste revient à l'état du brouillon et le message l'explique.
  */
-export function SectionsBoard({ sections: saved }: { sections: Section[] }) {
+export function SectionsBoard({ sections: saved, missing = {} }: { sections: Section[]; missing?: Record<string, number> }) {
   const [sections, apply] = useOptimistic(saved, applyChange)
   const [, startTransition] = useTransition()
   const [message, setMessage] = useState<{ text: string; error?: boolean } | null>(null)
@@ -70,7 +70,14 @@ export function SectionsBoard({ sections: saved }: { sections: Section[] }) {
               <DragHandle handle={handle} label={`Déplacer ${item.name}`} />
               <span className="w-7 flex-none text-[13px] font-semibold text-ocre-ink">{item.num}</span>
               <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                <span className={cn('truncate text-[15px] font-semibold', !section.visible && 'text-ink-muted')}>{item.name}</span>
+                <span className="flex min-w-0 items-center gap-2">
+                  <span className={cn('truncate text-[15px] font-semibold', !section.visible && 'text-ink-muted')}>{item.name}</span>
+                  {missing[section.id] > 0 && (
+                    <span className="flex-none rounded-full bg-ocre-tint px-2 py-0.5 text-[11px] font-semibold text-ocre-deep">
+                      {missing[section.id]} à traduire
+                    </span>
+                  )}
+                </span>
                 <span className="truncate text-[13px] text-ink-muted">
                   {section.visible ? sectionSummary(section) : `Masquée. ${sectionSummary(section)}`}
                 </span>

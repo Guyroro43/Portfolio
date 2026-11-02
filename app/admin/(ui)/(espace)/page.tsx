@@ -3,8 +3,11 @@ import type { Metadata } from 'next'
 import { AdminHeader } from '@/components/admin/admin-header'
 import { ChangesPanel, VersionsPanel } from '@/components/admin/publish-panels'
 import { SectionsBoard } from '@/components/admin/sections-board'
+import { TranslatePanel } from '@/components/admin/translate-panel'
 import { getSiteContent, getVersions } from '@/lib/admin/content'
 import { formatDate } from '@/lib/admin/format'
+import { getMediaLibrary } from '@/lib/admin/media'
+import { listToTranslate } from '@/lib/admin/translations'
 
 // Lit la session : la page attend la vérification avant de s'afficher (voir app/admin/(ui)/layout.tsx).
 export const instant = false
@@ -12,13 +15,20 @@ export const instant = false
 export const metadata: Metadata = { title: 'Vue d’ensemble' }
 
 export default async function DashboardPage() {
-  const [{ draft, publishedAt, changes }, versions] = await Promise.all([getSiteContent(), getVersions()])
+  const [{ draft, publishedAt, changes }, versions, library] = await Promise.all([getSiteContent(), getVersions(), getMediaLibrary()])
+  const toTranslate = listToTranslate(draft, library)
+  // Par section (cartes comprises), pour le badge « N à traduire » de chaque ligne.
+  const missing: Record<string, number> = {}
+  for (const item of toTranslate) {
+    const sectionId = item.href.startsWith('/admin/sections/') ? item.href.split('/')[3] : null
+    if (sectionId) missing[sectionId] = (missing[sectionId] ?? 0) + item.count
+  }
 
   return (
     <>
       <AdminHeader title="Vue d’ensemble" />
       <main className="grid items-start gap-6 p-4 sm:p-8 xl:grid-cols-[minmax(0,1fr)_340px]">
-        <SectionsBoard sections={draft.sections} />
+        <SectionsBoard sections={draft.sections} missing={missing} />
 
         <div className="flex flex-col gap-4">
           <section aria-labelledby="titre-enligne" className="flex flex-col gap-2.5 rounded-[20px] border border-line bg-white p-[22px]">
@@ -40,6 +50,7 @@ export default async function DashboardPage() {
           </section>
 
           <ChangesPanel changes={changes} />
+          <TranslatePanel items={toTranslate} />
           {versions.length > 1 && <VersionsPanel versions={versions} />}
         </div>
       </main>
